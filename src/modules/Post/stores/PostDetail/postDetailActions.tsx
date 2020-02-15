@@ -1,6 +1,6 @@
 import * as types from './postDetailTypes'
 import { API_POST_DETAIL, API_COMMENT_LIST } from '../../constants/postConstants'
-import { PostDetailModel } from '../../contracts/postDetailContracts'
+import { PostDetailModel, PostCommentModel } from '../../contracts/postDetailContracts'
 import { postService } from '../../services'
 
 export async function postDetailRequest (dispatch: Function, id: string) {
@@ -41,7 +41,7 @@ export async function postCommentListRequest (dispatch: Function) {
   }
 }
 
-function postCommentListSuccess (dispatch: Function, response: PostDetailModel) {
+function postCommentListSuccess (dispatch: Function, response: PostCommentModel) {
   dispatch({
     type: types.POST_COMMENT_LIST_SUCCESS,
     response

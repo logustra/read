@@ -33,6 +33,11 @@ const PostDetail = Loadable({
   loading: Loading
 })
 
+const PostAuthor = Loadable({
+  loader: () => import('@@/Post/views/postAuthor'),
+  loading: Loading
+})
+
 export default function App () {
   return (
     <Router>
@@ -43,6 +48,7 @@ export default function App () {
           <Switch>
             <Route exact path="/" component={PostIndex} />
             <Route exact path="/post/:id" component={PostDetail} />
+            <Route exact path="/author/:id" component={PostAuthor} />
             <Route exact path="*" component={NotFound} />
           </Switch>
         </Layout>
