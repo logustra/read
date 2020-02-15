@@ -4,6 +4,8 @@ import { AuthorListModel, PostListModel } from '../../contracts/postListContract
 import { postService } from '../../services'
 
 export async function authorListRequest(dispatch: Function) {
+  dispatch({ type: types.AUTHOR_LIST_REQUEST })
+
   try {
     const { data } = await postService.get(API_AUTHOR_LIST)
 
@@ -28,6 +30,8 @@ function authorListError (dispatch: Function, response: Error) {
 }
 
 export async function postListRequest (dispatch: Function) {
+  dispatch({ type: types.POST_LIST_REQUEST })
+
   try {
     const { data } = await postService.get(API_POST_LIST)
 

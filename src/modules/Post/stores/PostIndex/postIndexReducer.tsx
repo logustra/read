@@ -1,7 +1,7 @@
 import * as types from './postIndexTypes'
 import { PostListState, PostListModel, PostListAction } from '../../contracts/postListContracts'
 
-export const initStatePost = {
+export const postInitState = {
   authorList: {
     data: [],
     isFetching: false,
@@ -15,11 +15,20 @@ export const initStatePost = {
   }
 }
 
-export function reducerPost (state: PostListState, action: PostListAction) {
+export function postReducer (state: PostListState, action: PostListAction) {
   const { type, response } = action
   const { authorList, postList } = state
 
   switch (type) {
+    case types.AUTHOR_LIST_REQUEST:
+      return {
+        ...state,
+        authorList: {
+          ...authorList,
+          isFetching: true
+        }
+      }
+
     case types.AUTHOR_LIST_SUCCESS:
       return {
         ...state,
@@ -34,9 +43,18 @@ export function reducerPost (state: PostListState, action: PostListAction) {
       return {
         ...state,
         authorList: {
-          data: initStatePost.authorList.data,
+          data: postInitState.authorList.data,
           isFetching: false,
           isError: response
+        }
+      }
+
+    case types.POST_LIST_REQUEST:
+      return {
+        ...state,
+        postList: {
+          ...postList,
+          isFetching: true
         }
       }
 
@@ -57,7 +75,7 @@ export function reducerPost (state: PostListState, action: PostListAction) {
       return {
         ...state,
         postList: {
-          data: initStatePost.postList.data,
+          data: postInitState.postList.data,
           isFetching: false,
           isError: response
         }

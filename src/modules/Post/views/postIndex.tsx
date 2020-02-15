@@ -1,19 +1,19 @@
 import React from 'react'
 
 import { authorListRequest, postListRequest } from '../stores/PostIndex/postIndexActions'
-import { initStatePost, reducerPost } from '../stores/PostIndex/postIndexReducer'
+import { postInitState, postReducer } from '../stores/PostIndex/postIndexReducer'
 
 import { Loading } from 'atoms'
 
 import { PostList } from '../components'
 
 function PostIndex () {
-  const [statePost, dispatchPost] = React.useReducer(reducerPost, initStatePost)
-  const { postList } = statePost
+  const [postState, postDispatch] = React.useReducer(postReducer, postInitState)
+  const { postList } = postState
 
   React.useEffect(() => {
-    authorListRequest(dispatchPost)
-    postListRequest(dispatchPost)
+    authorListRequest(postDispatch)
+    postListRequest(postDispatch)
   }, [])
 
   return (
