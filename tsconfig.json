@@ -1,0 +1,45 @@
+{
+  "verbose": true,
+  "compileOnSave": true,
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "strict": true,
+    "jsx": "react",
+    "importHelpers": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
+    "sourceMap": true,
+    "removeComments": true,
+    "noImplicitAny": false,
+    "baseUrl": ".",
+    "typeRoots": [
+      "node_modules/@types",
+      "typings"
+    ],
+
+    "paths": {
+      "*": ["types/*"],
+      "@/*": ["src/*"],
+      "@@/*": ["src/modules/*"],
+      "atoms": ["src/components/atoms"],
+      "molecules": ["src/components/molecules"],
+      "organism": ["src/components/organism"],
+      "templates": ["src/components/templates"]
+    }
+  },
+
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx"
+  ],
+
+  "exclude": [
+    "node_modules",
+    "build",
+    "public",
+    "server"
+  ]
+}
