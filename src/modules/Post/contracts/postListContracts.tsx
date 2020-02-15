@@ -12,11 +12,6 @@ export interface PostListState {
   }
 }
 
-export interface PostListAction {
-  type: string,
-  response: any
-}
-
 export interface PostListModel {
   userId: number,
   id: number,
@@ -28,4 +23,18 @@ export interface PostListModel {
 export interface AuthorListModel {
   id: number,
   name: string
+}
+
+export interface PostListAction {
+  type: string,
+  response: any
+}
+
+export interface PostListProps {
+  withAuthor?: boolean,
+  data: {
+    data: [],
+    isFetching: boolean,
+    isError: Error
+  }
 }

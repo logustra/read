@@ -2,14 +2,14 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Styled from 'styled-components/macro'
 
-import { Props } from './postList.contracts'
+import { PostListModel, PostListProps } from '../../contracts/postListContracts'
 
 import { rem } from '@/styles'
 
 import { Loading } from 'atoms'
 import { Card } from 'templates'
 
-function PostList (props: Props) {
+function PostList (props: PostListProps) {
   function renderPostAuthor (item: any) {
     return (
       <div>
@@ -22,7 +22,7 @@ function PostList (props: Props) {
   }
   
   function renderPostList () {
-    return props.data.data.map((item: any) => (
+    return props.data.data.map((item: PostListModel) => (
       <div key={`post-${item.id}`}>
         <Card>
           <Link to={`/post/${item.id}`}>
