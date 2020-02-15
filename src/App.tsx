@@ -47,9 +47,9 @@ export default function App () {
         <Layout>
           <Switch>
             <Route exact path="/" component={PostIndex} />
-            <Route exact path="/post/:id" component={PostDetail} />
-            <Route exact path="/author/:id" component={PostAuthor} />
-            <Route exact path="*" component={NotFound} />
+            <Route path="/post/:id" component={PostDetail} />
+            <Route path="/author/:id" component={PostAuthor} />
+            <Route path="*" component={NotFound} />
           </Switch>
         </Layout>
       </ThemeProvider>
