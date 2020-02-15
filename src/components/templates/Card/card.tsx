@@ -9,12 +9,13 @@ function Card (props: Props) {
   const theme = React.useContext(ThemeContext)
 
   return (
-    <StyledCard theme={theme}>
-      <div className="layout-container">
-        <React.Fragment>
-          {props.children}
-        </React.Fragment>
-      </div>
+    <StyledCard 
+      theme={theme}
+      className="card"
+    >
+      <React.Fragment>
+        {props.children}
+      </React.Fragment>
     </StyledCard>
   )
 }

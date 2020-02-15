@@ -14,18 +14,18 @@ function PostList (props: Props) {
     return (
       <div>
         Written by 
-        <Link to="/">
-          {item.author.name}
+        <Link to={`/author/${item.userId}`}>
+          {` ` + item.author.name}
         </Link>
       </div>
     )
   }
   
   function renderPostList () {
-    return props.data.data.map((item: any) => {
+    return props.data.data.map((item: any) => (
       <div key={`post-${item.id}`}>
         <Card>
-          <Link to="/">
+          <Link to={`/post/${item.id}`}>
             <h3 className="title">
               {item.title}
             </h3>
@@ -41,7 +41,7 @@ function PostList (props: Props) {
           </div>
         </Card>
       </div>
-    })
+    ))
   }
 
   return (
