@@ -2,8 +2,12 @@ import React from 'react'
 import Styled from 'styled-components/macro'
 
 import { PostAuthorProps } from '../contracts/postAuthorContracts'
-import { authorDetailRequest, postAuthorRequest } from '../stores/PostAuthor/postAuthorActions'
-import { postAuthorInitState, postAuthorReducer } from '../stores/PostAuthor/postAuthorReducer'
+import {
+  authorDetailRequest,
+  postAuthorRequest,
+  postAuthorInitState,
+  postAuthorReducer 
+} from '../stores/PostAuthor'
 
 import { PostList } from '../components'
 

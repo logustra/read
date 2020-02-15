@@ -3,10 +3,13 @@ import { Link } from 'react-router-dom'
 import Styled from 'styled-components/macro'
 
 import { PostCommentModel, PostDetailProps } from '../contracts/postDetailContracts'
-import { postDetailRequest, postCommentListRequest } from '../stores/PostDetail/postDetailActions'
-import { postDetailInitState, postDetailReducer } from '../stores/PostDetail/postDetailReducer'
-import { authorDetailRequest } from '../stores/PostAuthor/postAuthorActions'
-import { postAuthorInitState, postAuthorReducer } from '../stores/PostAuthor/postAuthorReducer'
+import {
+  postDetailRequest,
+  postCommentListRequest,
+  postDetailInitState,
+  postDetailReducer 
+} from '../stores/PostDetail'
+import { authorDetailRequest, postAuthorInitState, postAuthorReducer } from '../stores/PostAuthor'
 
 import { Loading } from 'atoms'
 import { Card } from 'templates'

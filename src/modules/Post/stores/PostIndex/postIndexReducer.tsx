@@ -1,7 +1,7 @@
 import * as types from './postIndexTypes'
 import { PostListState, PostListModel, PostListAction } from '../../contracts/postListContracts'
 
-export const postInitState = {
+export const postIndexInitState = {
   authorList: {
     data: [],
     isFetching: false,
@@ -15,7 +15,7 @@ export const postInitState = {
   }
 }
 
-export function postReducer (state: PostListState, action: PostListAction) {
+export function postIndexReducer (state: PostListState, action: PostListAction) {
   const { type, response } = action
   const { authorList, postList } = state
 

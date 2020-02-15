@@ -1,19 +1,23 @@
 import React from 'react'
 
-import { authorListRequest, postListRequest } from '../stores/PostIndex/postIndexActions'
-import { postInitState, postReducer } from '../stores/PostIndex/postIndexReducer'
+import {
+  authorListRequest,
+  postListRequest,
+  postIndexInitState,
+  postIndexReducer 
+} from '../stores/PostIndex'
 
 import { Loading } from 'atoms'
 
 import { PostList } from '../components'
 
 function PostIndex () {
-  const [postState, postDispatch] = React.useReducer(postReducer, postInitState)
-  const { postList } = postState
+  const [postIndexState, postIndexDispatch] = React.useReducer(postIndexReducer, postIndexInitState)
+  const { postList } = postIndexState
 
   React.useEffect(() => {
-    authorListRequest(postDispatch)
-    postListRequest(postDispatch)
+    authorListRequest(postIndexDispatch)
+    postListRequest(postIndexDispatch)
   }, [])
 
   return (
