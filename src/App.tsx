@@ -28,6 +28,11 @@ const PostIndex = Loadable({
   loading: Loading
 })
 
+const PostDetail = Loadable({
+  loader: () => import('@@/Post/views/postDetail'),
+  loading: Loading
+})
+
 export default function App () {
   return (
     <Router>
@@ -37,6 +42,7 @@ export default function App () {
         <Layout>
           <Switch>
             <Route exact path="/" component={PostIndex} />
+            <Route exact path="/post/:id" component={PostDetail} />
             <Route exact path="*" component={NotFound} />
           </Switch>
         </Layout>

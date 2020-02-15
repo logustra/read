@@ -3,7 +3,7 @@ import { API_AUTHOR_LIST, API_POST_LIST } from '../../constants/postConstants'
 import { AuthorListModel, PostListModel } from '../../contracts/postListContracts'
 import { postService } from '../../services'
 
-export async function authorListRequest(dispatch: Function) {
+export async function authorListRequest (dispatch: Function) {
   dispatch({ type: types.AUTHOR_LIST_REQUEST })
 
   try {
