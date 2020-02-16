@@ -11,6 +11,8 @@ import {
 } from '../stores/PostDetail'
 import { authorDetailRequest, postAuthorInitState, postAuthorReducer } from '../stores/PostAuthor'
 
+import { setTitle, commonInitState, commonReducer } from '@/stores/Common'
+
 import { Loading } from 'atoms'
 import { Card } from 'templates'
 
@@ -19,14 +21,17 @@ import { rem } from '@/styles'
 function PostDetail (props: PostDetailProps) {
   const [postDetailState, postDetailDispatch] = React.useReducer(postDetailReducer, postDetailInitState)
   const [postAuthorState, postAuthorDispatch] = React.useReducer(postAuthorReducer, postAuthorInitState)
+  const [commonState, commonDispatch] = React.useReducer(commonReducer, commonInitState)
   const { postDetail, postCommentList } = postDetailState
   const { authorDetail } = postAuthorState
+  const title = postDetail.data.title ? postDetail.data.title : commonState.title
 
   React.useEffect(() => {
     postDetailRequest(postDetailDispatch, props.match.params.id)
     authorDetailRequest(postAuthorDispatch, postDetail.data.userId)
+    setTitle(commonDispatch, title)
     postCommentListRequest(postDetailDispatch)
-  }, [props.match.params.id, postDetail.data.userId])
+  }, [props.match.params.id, postDetail.data.userId, title])
 
   function renderPostDetail () {
     return (

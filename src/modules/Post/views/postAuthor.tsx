@@ -9,6 +9,8 @@ import {
   postAuthorReducer 
 } from '../stores/PostAuthor'
 
+import { setTitle, commonInitState, commonReducer } from '@/stores/Common'
+
 import { PostList } from '../components'
 
 import { Loading } from 'atoms'
@@ -18,12 +20,15 @@ import { rem } from '@/styles'
 
 function PostAuthor (props: PostAuthorProps) {
   const [postAuthorState, postAuthorDispatch] = React.useReducer(postAuthorReducer, postAuthorInitState)
+  const [commonState, commonDispatch] = React.useReducer(commonReducer, commonInitState)
   const { authorDetail, postAuthor } = postAuthorState
+  const title = authorDetail.data.name ? authorDetail.data.name : commonState.title
 
   React.useEffect(() => {
     authorDetailRequest(postAuthorDispatch, props.match.params.id)
     postAuthorRequest(postAuthorDispatch)
-  }, [props.match.params.id])
+    setTitle(commonDispatch, title)
+  }, [props.match.params.id, title])
 
   function renderAuthorDetail () {
     return (
