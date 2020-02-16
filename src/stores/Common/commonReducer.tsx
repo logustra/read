@@ -14,6 +14,7 @@ export function commonReducer (state: CommonState, action: CommonAction) {
       document.title = response
       
       return {
+        ...state,
         title: response
       }
   }

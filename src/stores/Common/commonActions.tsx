@@ -1,7 +1,6 @@
 import * as types from './commonTypes'
-import { CommonState } from '@/contracts/commonContracts'
 
-export function setTitle (dispatch: Function, response: CommonState) {
+export function setTitle (dispatch: Function, response: string) {
   dispatch({
     type: types.SET_TITLE,
     response
