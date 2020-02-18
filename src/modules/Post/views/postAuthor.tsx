@@ -1,7 +1,7 @@
 import React from 'react'
+import { useParams } from 'react-router-dom'
 import Styled from 'styled-components/macro'
 
-import { PostAuthorProps } from '../contracts/postAuthorContracts'
 import {
   authorDetailRequest,
   postAuthorRequest,
@@ -18,17 +18,18 @@ import { Card } from 'templates'
 
 import { rem } from '@/styles'
 
-function PostAuthor (props: PostAuthorProps) {
+function PostAuthor () {
   const [postAuthorState, postAuthorDispatch] = React.useReducer(postAuthorReducer, postAuthorInitState)
   const [commonState, commonDispatch] = React.useReducer(commonReducer, commonInitState)
   const { authorDetail, postAuthor } = postAuthorState
+  const { userId }: {[key: string]: string} = useParams()
   const title = authorDetail.data.name ? authorDetail.data.name : commonState.title
 
   React.useEffect(() => {
-    authorDetailRequest(postAuthorDispatch, props.match.params.id)
+    authorDetailRequest(postAuthorDispatch, userId)
     postAuthorRequest(postAuthorDispatch)
     setTitle(commonDispatch, title)
-  }, [props.match.params.id, title])
+  }, [userId, title])
 
   function renderAuthorDetail () {
     return (

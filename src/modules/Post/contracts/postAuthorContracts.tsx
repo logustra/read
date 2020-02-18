@@ -31,10 +31,3 @@ export interface PostAuthorAction {
   response: any
 }
 
-export interface PostAuthorProps {
-  match: {
-    params: {
-      id: string
-    }
-  }
-}

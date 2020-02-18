@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Styled from 'styled-components/macro'
 
-import { PostCommentModel, PostDetailProps } from '../contracts/postDetailContracts'
+import { PostCommentModel } from '../contracts/postDetailContracts'
 import {
   postDetailRequest,
   postCommentListRequest,
@@ -18,20 +18,21 @@ import { Card } from 'templates'
 
 import { rem } from '@/styles'
 
-function PostDetail (props: PostDetailProps) {
+function PostDetail () {
   const [postDetailState, postDetailDispatch] = React.useReducer(postDetailReducer, postDetailInitState)
   const [postAuthorState, postAuthorDispatch] = React.useReducer(postAuthorReducer, postAuthorInitState)
   const [commonState, commonDispatch] = React.useReducer(commonReducer, commonInitState)
+  const { postId }: {[key: string]: string} = useParams()
   const { postDetail, postCommentList } = postDetailState
   const { authorDetail } = postAuthorState
   const title = postDetail.data.title ? postDetail.data.title : commonState.title
 
   React.useEffect(() => {
-    postDetailRequest(postDetailDispatch, props.match.params.id)
+    postDetailRequest(postDetailDispatch, postId)
     authorDetailRequest(postAuthorDispatch, postDetail.data.userId)
     setTitle(commonDispatch, title)
     postCommentListRequest(postDetailDispatch)
-  }, [props.match.params.id, postDetail.data.userId, title])
+  }, [postId, postDetail.data.userId, title])
 
   function renderPostDetail () {
     return (

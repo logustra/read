@@ -31,11 +31,3 @@ export interface PostDetailAction {
   type: string,
   response: any
 }
-
-export interface PostDetailProps {
-  match: {
-    params: {
-      id: string
-    }
-  }
-}
