@@ -1,9 +1,9 @@
 import React from 'react'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import Loadable from 'react-loadable'
+import { BrowserRouter } from 'react-router-dom'
 import { ThemeProvider } from 'styled-components/macro'
 
-import { Loading } from 'atoms'
+import Router from './router'
+
 import { Layout } from 'templates'
 
 import { 
@@ -18,41 +18,16 @@ const theme: {} = {
   typography
 }
 
-const NotFound = Loadable({
-  loader: () => import('./views/notFound'),
-  loading: Loading
-})
-
-const PostIndex = Loadable({
-  loader: () => import('@@/Post/views/postIndex'),
-  loading: Loading
-})
-
-const PostDetail = Loadable({
-  loader: () => import('@@/Post/views/postDetail'),
-  loading: Loading
-})
-
-const PostAuthor = Loadable({
-  loader: () => import('@@/Post/views/postAuthor'),
-  loading: Loading
-})
-
 export default function App () {
   return (
-    <Router>
+    <BrowserRouter>
       <ThemeProvider theme={theme}>
         <GlobalStyleTypography theme={theme} />
         <GlobalStyleBase theme={theme} />
         <Layout>
-          <Switch>
-            <Route exact path="/" component={PostIndex} />
-            <Route path="/post/:postId" component={PostDetail} />
-            <Route path="/author/:userId" component={PostAuthor} />
-            <Route path="*" component={NotFound} />
-          </Switch>
+          <Router />
         </Layout>
       </ThemeProvider>
-    </Router>
+    </BrowserRouter>
   )
 }
