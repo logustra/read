@@ -17,7 +17,7 @@ export default function Preloader ({children}: Props) {
 
   return (
     <React.Fragment>
-      {props.children}
+      {children}
     </React.Fragment>
   )
 }
