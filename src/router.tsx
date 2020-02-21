@@ -47,7 +47,7 @@ export default function Router () {
   }
   
   return (
-    <React.Suspense fallback={Loading}>
+    <React.Suspense fallback={<div />}>
       <Switch>
         {renderRouter()}
       </Switch>

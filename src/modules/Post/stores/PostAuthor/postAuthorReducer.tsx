@@ -73,7 +73,7 @@ export function postAuthorReducer (state: PostAuthorState, action: PostAuthorAct
         }
       }
 
-    case types.POST_AUTHOR_SUCCESS:
+    case types.POST_AUTHOR_ERROR:
       return {
         ...state,
         postAuthor: {
