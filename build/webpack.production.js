@@ -8,6 +8,25 @@ const TerserPlugin = require('terser-webpack-plugin')
 
 module.exports = merge(common, {
   mode: 'production',
+
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: true,
+              importLoaders: 2
+            }
+          }
+        ]
+      }
+    ]
+  },
+
   plugins: [
     new HtmlWebpackPlugin({
       template: './public/index.html',

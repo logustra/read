@@ -4,6 +4,7 @@ import { Switch, Route } from 'react-router-dom'
 import { RouterType } from '@/contracts/routerContracts'
 
 import { Loading } from 'atoms'
+import { Preloader } from 'templates'
 
 const domainModuleFiles = require.context('./modules', true, /router.tsx/)
 const domainModules = domainModuleFiles.keys().reduce((carry: any, item: string) => {
@@ -12,6 +13,7 @@ const domainModules = domainModuleFiles.keys().reduce((carry: any, item: string)
 
 const router = [
   ...domainModules,
+  
   {
     exact: false,
     path: '*',
@@ -19,10 +21,23 @@ const router = [
   },
 ]
 
+function PreloaderRoute ({ component: Component, ...props }) {
+  return (
+    <Route
+      {...props}
+      render={routeProps => (
+        <Preloader>
+          <Component {...routeProps} />
+        </Preloader>
+      )}
+    />
+  );
+}
+
 export default function Router () {
   function renderRouter() {
     return router.map((item: RouterType, index: number) => (
-      <Route
+      <PreloaderRoute
         key={`router-${index}`}
         exact={item.exact}
         path={item.path}

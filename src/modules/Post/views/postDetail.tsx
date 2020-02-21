@@ -18,7 +18,7 @@ import { Card } from 'templates'
 
 import { rem } from '@/styles'
 
-function PostDetail () {
+export default function PostDetail () {
   const [postDetailState, postDetailDispatch] = React.useReducer(postDetailReducer, postDetailInitState)
   const [postAuthorState, postAuthorDispatch] = React.useReducer(postAuthorReducer, postAuthorInitState)
   const [commonState, commonDispatch] = React.useReducer(commonReducer, commonInitState)
@@ -29,10 +29,19 @@ function PostDetail () {
 
   React.useEffect(() => {
     postDetailRequest(postDetailDispatch, postId)
+  }, [postId])
+
+  React.useEffect(() => {
     authorDetailRequest(postAuthorDispatch, postDetail.data.userId)
+  }, [postDetail.data.userId])
+  
+  React.useEffect(() => {
     setTitle(commonDispatch, title)
+  }, [title])
+
+  React.useEffect(() => {
     postCommentListRequest(postDetailDispatch)
-  }, [postId, postDetail.data.userId, title])
+  }, [])
 
   function renderPostDetail () {
     return (
@@ -96,5 +105,3 @@ const StyledPostDetail = Styled.div`
     }
   }
 `
-
-export default PostDetail

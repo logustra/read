@@ -9,7 +9,7 @@ import { rem } from '@/styles'
 import { Loading } from 'atoms'
 import { Card } from 'templates'
 
-function PostList (props: PostListProps) {
+export default function PostList({ withAuthor, data }: PostListProps) {
   function renderPostAuthor (item: any) {
     return (
       <div>
@@ -22,7 +22,7 @@ function PostList (props: PostListProps) {
   }
   
   function renderPostList () {
-    return props.data.data.map((item: PostListModel) => (
+    return data.data.map((item: PostListModel) => (
       <div key={`post-${item.id}`}>
         <Card>
           <Link to={`/post/${item.id}`}>
@@ -31,7 +31,7 @@ function PostList (props: PostListProps) {
             </h3>
           </Link>
 
-          {props.withAuthor && item.author 
+          {withAuthor && item.author 
             ? renderPostAuthor(item)
             : ''
           }
@@ -46,7 +46,7 @@ function PostList (props: PostListProps) {
 
   return (
     <StyledPostList>
-      {props.data.isFetching
+      {data.isFetching
         ? <Loading />
         : renderPostList()
       }
@@ -59,5 +59,3 @@ const StyledPostList = Styled.div`
     margin-bottom: ${rem('16px')};
   }
 `
-
-export default PostList

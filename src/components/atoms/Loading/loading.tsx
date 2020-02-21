@@ -1,11 +1,9 @@
 import React from 'react'
 
-function Loading () {
+export default function Loading () {
   return (
     <div className="loading">
       loading...
     </div>
   )
 }
-
-export default Loading

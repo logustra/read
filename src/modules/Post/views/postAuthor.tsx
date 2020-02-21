@@ -18,7 +18,7 @@ import { Card } from 'templates'
 
 import { rem } from '@/styles'
 
-function PostAuthor () {
+export default function PostAuthor () {
   const [postAuthorState, postAuthorDispatch] = React.useReducer(postAuthorReducer, postAuthorInitState)
   const [commonState, commonDispatch] = React.useReducer(commonReducer, commonInitState)
   const { authorDetail, postAuthor } = postAuthorState
@@ -27,9 +27,15 @@ function PostAuthor () {
 
   React.useEffect(() => {
     authorDetailRequest(postAuthorDispatch, userId)
+  }, [userId])
+
+  React.useEffect(() => {
     postAuthorRequest(postAuthorDispatch)
+  }, [])
+
+  React.useEffect(() => {
     setTitle(commonDispatch, title)
-  }, [userId, title])
+  }, [title])
 
   function renderAuthorDetail () {
     return (
@@ -70,5 +76,3 @@ const StyledPostAuthor = Styled.div`
     margin-bottom: ${rem('16px')};
   }
 `
-
-export default PostAuthor

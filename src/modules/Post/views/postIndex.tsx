@@ -11,12 +11,15 @@ import { Loading } from 'atoms'
 
 import { PostList } from '../components'
 
-function PostIndex () {
+export default function PostIndex () {
   const [postIndexState, postIndexDispatch] = React.useReducer(postIndexReducer, postIndexInitState)
   const { postList } = postIndexState
 
   React.useEffect(() => {
     authorListRequest(postIndexDispatch)
+  }, [])
+
+  React.useEffect(() => {
     postListRequest(postIndexDispatch)
   }, [])
 
@@ -33,5 +36,3 @@ function PostIndex () {
     </div>
   )
 }
-
-export default PostIndex

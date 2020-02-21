@@ -1,8 +1,9 @@
 import React from 'react'
-import { BrowserRouter } from 'react-router-dom'
+import { Router } from 'react-router-dom'
+import { createBrowserHistory } from 'history'
 import { ThemeProvider } from 'styled-components/macro'
 
-import Router from './router'
+import Routes from './router'
 
 import { Layout } from 'templates'
 
@@ -18,16 +19,18 @@ const theme: {} = {
   typography
 }
 
+const browserHistory = createBrowserHistory()
+
 export default function App () {
   return (
-    <BrowserRouter>
+    <Router history={browserHistory}>
       <ThemeProvider theme={theme}>
         <GlobalStyleTypography theme={theme} />
         <GlobalStyleBase theme={theme} />
         <Layout>
-          <Router />
+          <Routes />
         </Layout>
       </ThemeProvider>
-    </BrowserRouter>
+    </Router>
   )
 }

@@ -5,11 +5,11 @@ import { Props } from './layout.contracts'
 
 import { rem } from '@/styles'
 
-function Layout (props: Props) {
+export default function Layout ({children}: Props) {
   return (
     <StyledLayout>
       <div className="layout-container">
-        {props.children}
+        {children}
       </div>
     </StyledLayout>
   )
@@ -24,5 +24,3 @@ const StyledLayout = Styled.div`
     padding: ${rem('16px')};
   }
 `
-
-export default Layout

@@ -5,7 +5,7 @@ import { Props } from './card.contracts'
 
 import { rem } from '@/styles'
 
-function Card (props: Props) {
+export default function Card ({ children }: Props) {
   const theme = React.useContext(ThemeContext)
 
   return (
@@ -14,7 +14,7 @@ function Card (props: Props) {
       className="card"
     >
       <React.Fragment>
-        {props.children}
+        {children}
       </React.Fragment>
     </StyledCard>
   )
@@ -44,5 +44,3 @@ const StyledCard = Styled.div`
     margin-top: ${rem('12px')};
   }
 `
-
-export default Card
