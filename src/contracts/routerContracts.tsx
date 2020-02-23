@@ -1,6 +1,6 @@
 import { FunctionComponent } from 'react'
 
-export interface RouterType {
+export interface RoutesModel {
   path: string,
   exact: boolean,
   component: FunctionComponent

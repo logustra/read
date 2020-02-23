@@ -1,9 +1,8 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 
-import { RouterType } from '@/contracts/routerContracts'
+import { RoutesModel } from '@/contracts/routerContracts'
 
-import { Loading } from 'atoms'
 import { Preloader } from 'templates'
 
 const domainModuleFiles = require.context('./modules', true, /router.tsx/)
@@ -11,7 +10,7 @@ const domainModules = domainModuleFiles.keys().reduce((carry: any, item: string)
   return [...carry, ...domainModuleFiles(item).default]
 }, [])
 
-const router = [
+const routes = [
   ...domainModules,
   
   {
@@ -21,10 +20,10 @@ const router = [
   },
 ]
 
-function PreloaderRoute ({ component: Component, ...props }) {
+function PreloaderRoute ({ component: Component, ...item }) {
   return (
     <Route
-      {...props}
+      {...item}
       render={routeProps => (
         <Preloader>
           <Component {...routeProps} />
@@ -34,22 +33,18 @@ function PreloaderRoute ({ component: Component, ...props }) {
   );
 }
 
-export default function Router () {
-  function renderRouter() {
-    return router.map((item: RouterType, index: number) => (
-      <PreloaderRoute
-        key={`router-${index}`}
-        exact={item.exact}
-        path={item.path}
-        component={item.component}
-      />
-    ))
-  }
-  
+export default function Router () {  
   return (
     <React.Suspense fallback={<div />}>
       <Switch>
-        {renderRouter()}
+        ${routes.map((item: RoutesModel, index: number) => (
+          <PreloaderRoute
+            key={`router-${index}`}
+            exact={item.exact}
+            path={item.path}
+            component={item.component}
+          />
+        ))}
       </Switch>
     </React.Suspense>
   )
