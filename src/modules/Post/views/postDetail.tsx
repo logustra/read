@@ -43,54 +43,46 @@ export default function PostDetail () {
     postCommentListRequest(postDetailDispatch)
   }, [])
 
-  function renderPostDetail () {
-    return (
-      <Card>
-        <h2 className="title">
-          {postDetail.data.title}
-        </h2>
-        <div>
-          Written by
-          <Link to={`/author/${postDetail.data.userId}`}>
-            {` ` + authorDetail.data.name}
-          </Link>
-        </div>
-
-        <div className="description">
-          {postDetail.data.body}
-        </div>
-      </Card>
-    )
-  }
-
-  function renderPostCommentList () {
-    return postCommentList.data.map((item: PostCommentModel) => (
-      <Card key={`comment-${item.id}`}>
-        <h3 className="title">
-          {item.name}
-        </h3>
-
-        <div className="description">
-          {item.body}
-        </div>
-      </Card>
-    ))
-  }
-
   return (
     <StyledPostDetail>
-      {postDetail.isFetching
-        ? <Loading />
-        : renderPostDetail()
-      }
+      {postDetail.isFetching ? (
+        <Loading />
+      ) : (
+        <Card>
+          <h2 className="title">
+            {postDetail.data.title}
+          </h2>
+          <div>
+            Written by
+              <Link to={`/author/${postDetail.data.userId}`}>
+              {` ` + authorDetail.data.name}
+            </Link>
+          </div>
+
+          <div className="description">
+            {postDetail.data.body}
+          </div>
+        </Card>
+      )}
 
       <div className="comment">
         <h3>Comments</h3>
 
-        {postCommentList.isFetching
-          ? <Loading />
-          : renderPostCommentList()
-        }
+        {postCommentList.isFetching ? (
+          <Loading />
+        ) : (
+          postCommentList.data.map((item: PostCommentModel) => (
+            <Card key={`comment-${item.id}`}>
+              <h3 className="title">
+                {item.name}
+              </h3>
+
+              <div className="description">
+                {item.body}
+              </div>
+            </Card>
+          ))
+        )}
       </div>
     </StyledPostDetail>
   )

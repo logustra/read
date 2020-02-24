@@ -26,13 +26,14 @@ export default function PostIndex () {
   return (
     <div>
       <h2>Read</h2>
-      {postList.isFetching
-        ? <Loading />
-        : <PostList 
-            withAuthor={true}
-            data={postList} 
-          />
-      }
+      {postList.isFetching ? (
+        <Loading />
+      ) : (
+        <PostList
+          withAuthor={true}
+          data={postList}
+        />
+      )}
     </div>
   )
 }

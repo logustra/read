@@ -37,7 +37,7 @@ export default function Router () {
   return (
     <React.Suspense fallback={<div />}>
       <Switch>
-        ${routes.map((item: RoutesModel, index: number) => (
+        {routes.map((item: RoutesModel, index: number) => (
           <PreloaderRoute
             key={`router-${index}`}
             exact={item.exact}

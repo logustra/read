@@ -1,3 +1,5 @@
+import { AuthorDetailModel } from './postAuthorContracts'
+
 export interface PostDetailState {
   postDetail: {
     data: PostDetailModel[],
@@ -31,3 +33,4 @@ export interface PostDetailAction {
   type: string,
   response: any
 }
+

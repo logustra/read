@@ -37,36 +37,32 @@ export default function PostAuthor () {
     setTitle(commonDispatch, title)
   }, [title])
 
-  function renderAuthorDetail () {
-    return (
-      <Card>
-        <h2 className="title">
-          {authorDetail.data.name}
-        </h2>
-        <hr />
-        <div>
-          Email: {authorDetail.data.email} <br />
-          Website: {authorDetail.data.website}
-        </div>
-      </Card>
-    )
-  }
-
   return (
     <StyledPostAuthor>
-      {authorDetail.isFetching
-        ? <Loading />
-        : renderAuthorDetail()
-      }
+      {authorDetail.isFetching ? (
+        <Loading />
+      ) : (
+        <Card>
+          <h2 className="title">
+            {authorDetail.data.name}
+          </h2>
+          <hr />
+          <div>
+            Email: {authorDetail.data.email} <br />
+            Website: {authorDetail.data.website}
+          </div>
+        </Card>
+      )}
 
       <h3>Posted Article</h3>
-      {postAuthor.isFetching
-        ? <Loading />
-        : <PostList 
-            withAuthor={false}
-            data={postAuthor}
-          />
-      }
+      {postAuthor.isFetching ? (
+        <Loading />
+      ) : (
+        <PostList
+          withAuthor={false}
+          data={postAuthor}
+        />
+      )}
     </StyledPostAuthor>
   )
 }
