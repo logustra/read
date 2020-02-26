@@ -6,7 +6,7 @@ import { Props } from './preloader.contracts'
 
 progress.configure({ showSpinner: false })
 
-export default function Preloader ({children}: Props) {
+export default function Preloader ({ children }: Props) {
   React.useEffect(() => {
     progress.start()
   })

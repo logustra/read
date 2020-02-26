@@ -3,18 +3,6 @@ import { API_AUTHOR_LIST, API_POST_LIST } from '../../constants/postConstants'
 import { AuthorListModel, PostListModel } from '../../contracts/postListContracts'
 import { postService } from '../../services'
 
-export async function authorListRequest (dispatch: Function) {
-  dispatch({ type: types.AUTHOR_LIST_REQUEST })
-
-  try {
-    const { data } = await postService.get(API_AUTHOR_LIST)
-
-    authorListSuccess(dispatch, data)
-  } catch (error) {
-    authorListError(dispatch, error.response.data)
-  }
-}
-
 function authorListSuccess (dispatch: Function, response: AuthorListModel) {
   dispatch({
     type: types.AUTHOR_LIST_SUCCESS,
@@ -29,15 +17,15 @@ function authorListError (dispatch: Function, response: Error) {
   })
 }
 
-export async function postListRequest (dispatch: Function) {
-  dispatch({ type: types.POST_LIST_REQUEST })
+export async function authorListRequest (dispatch: Function) {
+  dispatch({ type: types.AUTHOR_LIST_REQUEST })
 
   try {
-    const { data } = await postService.get(API_POST_LIST)
+    const { data } = await postService.get(API_AUTHOR_LIST)
 
-    postListSuccess(dispatch, data)
+    authorListSuccess(dispatch, data)
   } catch (error) {
-    postListError(dispatch, error.response.data)
+    authorListError(dispatch, error.response.data)
   }
 }
 
@@ -53,4 +41,16 @@ function postListError (dispatch: Function, response: Error) {
     type: types.POST_LIST_ERROR,
     response
   })
+}
+
+export async function postListRequest (dispatch: Function) {
+  dispatch({ type: types.POST_LIST_REQUEST })
+
+  try {
+    const { data } = await postService.get(API_POST_LIST)
+
+    postListSuccess(dispatch, data)
+  } catch (error) {
+    postListError(dispatch, error.response.data)
+  }
 }

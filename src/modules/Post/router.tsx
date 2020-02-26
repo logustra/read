@@ -15,5 +15,5 @@ export default [
     exact: false,
     path: '/author/:userId',
     component: React.lazy(() => import('./views/postAuthor'))
-  },
+  }
 ]

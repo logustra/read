@@ -1,4 +1,4 @@
-declare module "*.json" {
+declare module '*.json' {
   const json: {}
   export default json
 }

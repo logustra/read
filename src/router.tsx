@@ -17,7 +17,7 @@ const routes = [
     exact: false,
     path: '*',
     component: React.lazy(() => import('./views/notFound'))
-  },
+  }
 ]
 
 function PreloaderRoute ({ component: Component, ...item }) {
@@ -30,7 +30,7 @@ function PreloaderRoute ({ component: Component, ...item }) {
         </Preloader>
       )}
     />
-  );
+  )
 }
 
 export default function Router () {  

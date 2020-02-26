@@ -3,7 +3,7 @@ import axios, { AxiosInstance } from 'axios'
 export default class Http {
   protected axios: AxiosInstance
 
-  public constructor(axiosConfig: object) {
+  public constructor (axiosConfig: object) {
     this.axios = axios.create(axiosConfig)
   }
 
@@ -14,7 +14,7 @@ export default class Http {
    * @param  {object} params
    * @param  {string} responseType
    */
-  public get(url: string, params?: {}, responseType?: string) {
+  public get (url: string, params?: {}, responseType?: string) {
     try {
       const config: any = {
         method: 'get',
@@ -38,7 +38,7 @@ export default class Http {
    * @param  {string} url
    * @param  {object} data
    */
-  public post(url: string, data: object) {
+  public post (url: string, data: object) {
     try {
       return this.axios.request({
         method: 'post',
@@ -56,7 +56,7 @@ export default class Http {
    * @param  {string} url
    * @param  {object} data
    */
-  public put(url: string, data: object) {
+  public put (url: string, data: object) {
     try {
       return this.axios.request({
         method: 'put',
@@ -74,7 +74,7 @@ export default class Http {
    * @param  {string} url
    * @param  {object} data
    */
-  public patch(url: string, data: object) {
+  public patch (url: string, data: object) {
     try {
       return this.axios.request({
         method: 'patch',
@@ -91,7 +91,7 @@ export default class Http {
    *
    * @param  {string} url
    */
-  public delete(url: string) {
+  public delete (url: string) {
     try {
       return this.axios.request({
         method: 'delete',

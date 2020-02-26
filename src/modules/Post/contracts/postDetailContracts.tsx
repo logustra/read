@@ -1,5 +1,3 @@
-import { AuthorDetailModel } from './postAuthorContracts'
-
 export interface PostDetailState {
   postDetail: {
     data: PostDetailModel[],

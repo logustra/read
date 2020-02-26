@@ -3,18 +3,6 @@ import { API_POST_DETAIL, API_COMMENT_LIST } from '../../constants/postConstants
 import { PostDetailModel, PostCommentModel } from '../../contracts/postDetailContracts'
 import { postService } from '../../services'
 
-export async function postDetailRequest (dispatch: Function, id: string) {
-  dispatch({ type: types.POST_DETAIL_REQUEST })
-
-  try {
-    const { data } = await postService.get(API_POST_DETAIL + id)
-
-    postDetailSuccess(dispatch, data)
-  } catch (error) {
-    postDetailError(dispatch, error.response.data)
-  }
-}
-
 function postDetailSuccess (dispatch: Function, response: PostDetailModel) {
   dispatch({
     type: types.POST_DETAIL_SUCCESS,
@@ -29,15 +17,15 @@ function postDetailError (dispatch: Function, response: Error) {
   })
 }
 
-export async function postCommentListRequest (dispatch: Function) {
-  dispatch({ type: types.POST_COMMENT_LIST_REQUEST })
+export async function postDetailRequest (dispatch: Function, id: string) {
+  dispatch({ type: types.POST_DETAIL_REQUEST })
 
   try {
-    const { data } = await postService.get(API_COMMENT_LIST)
+    const { data } = await postService.get(API_POST_DETAIL + id)
 
-    postCommentListSuccess(dispatch, data)
+    postDetailSuccess(dispatch, data)
   } catch (error) {
-    postCommentListError(dispatch, error.response.data)
+    postDetailError(dispatch, error.response.data)
   }
 }
 
@@ -53,4 +41,16 @@ function postCommentListError (dispatch: Function, response: Error) {
     type: types.POST_COMMENT_LIST_ERROR,
     response
   })
+}
+
+export async function postCommentListRequest (dispatch: Function) {
+  dispatch({ type: types.POST_COMMENT_LIST_REQUEST })
+
+  try {
+    const { data } = await postService.get(API_COMMENT_LIST)
+
+    postCommentListSuccess(dispatch, data)
+  } catch (error) {
+    postCommentListError(dispatch, error.response.data)
+  }
 }

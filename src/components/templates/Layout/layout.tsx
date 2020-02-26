@@ -5,7 +5,7 @@ import { Props } from './layout.contracts'
 
 import { rem } from '@/styles'
 
-export default function Layout ({children}: Props) {
+export default function Layout ({ children }: Props) {
   return (
     <StyledLayout>
       <div className="layout-container">

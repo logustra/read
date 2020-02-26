@@ -54,8 +54,8 @@ export default function PostDetail () {
           </h2>
           <div>
             Written by
-              <Link to={`/author/${postDetail.data.userId}`}>
-              {` ` + authorDetail.data.name}
+            <Link to={`/author/${postDetail.data.userId}`}>
+              {' ' + authorDetail.data.name}
             </Link>
           </div>
 
