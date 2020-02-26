@@ -6,6 +6,9 @@
     "module": "esnext",
     "strict": true,
     "jsx": "react",
+    "noEmit": true,
+    "incremental": true,
+    "isolatedModules": true,
     "importHelpers": true,
     "moduleResolution": "node",
     "esModuleInterop": true,
@@ -40,6 +43,9 @@
     "node_modules",
     "build",
     "public",
-    "server"
+    "server",
+    "babel.config.js",
+    "commitlint.config.js",
+    "husky.config.js"
   ]
 }
