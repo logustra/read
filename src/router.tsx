@@ -20,10 +20,10 @@ const routes = [
   }
 ]
 
-function PreloaderRoute ({ component: Component, ...item }) {
+function PreloaderRoute ({ component: Component, ...props }) {
   return (
     <Route
-      {...item}
+      {...props}
       render={routeProps => (
         <Preloader>
           <Component {...routeProps} />
