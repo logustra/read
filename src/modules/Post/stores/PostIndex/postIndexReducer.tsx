@@ -43,7 +43,7 @@ export function postIndexReducer (state: PostListState, action: PostListAction) 
       return {
         ...state,
         authorList: {
-          data: postInitState.authorList.data,
+          data: postIndexInitState.authorList.data,
           isFetching: false,
           isError: response
         }
@@ -75,7 +75,7 @@ export function postIndexReducer (state: PostListState, action: PostListAction) 
       return {
         ...state,
         postList: {
-          data: postInitState.postList.data,
+          data: postIndexInitState.postList.data,
           isFetching: false,
           isError: response
         }

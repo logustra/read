@@ -39,7 +39,7 @@ export default function Router () {
       <Switch>
         {routes.map((item: RoutesModel, index: number) => (
           <PreloaderRoute
-            key={`router-${index}`}
+            key={`route-${index}`}
             exact={item.exact}
             path={item.path}
             component={item.component}

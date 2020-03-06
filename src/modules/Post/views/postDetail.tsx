@@ -19,10 +19,11 @@ import { Card } from 'templates'
 import { rem } from '@/styles'
 
 export default function PostDetail () {
+  const { postId }: {[key: string]: string} = useParams()
+  
   const [postDetailState, postDetailDispatch] = React.useReducer(postDetailReducer, postDetailInitState)
   const [postAuthorState, postAuthorDispatch] = React.useReducer(postAuthorReducer, postAuthorInitState)
   const [commonState, commonDispatch] = React.useReducer(commonReducer, commonInitState)
-  const { postId }: {[key: string]: string} = useParams()
   const { postDetail, postCommentList } = postDetailState
   const { authorDetail } = postAuthorState
   const title = postDetail.data.title ? postDetail.data.title : commonState.title
