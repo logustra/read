@@ -1,14 +1,26 @@
 ## Read
 Example Atomic Design with DDD (Domain Driven Design)
 
-## Quick Start
-1. Make sure you have these installed
-    * [node.js](http://nodejs.org/)
-    * [yarn](https://yarnpkg.com/en/)
+## Requirement
+  - [node.js](http://nodejs.org/)
+  - [yarn](https://yarnpkg.com/en/)
 
-2. Clone repository `git clone https://github.com/logustra/read.git`
-3. CD to the folder `cd read` 
-4. Run `yarn install`
-5. Run `cp .env.example .env`
-6. Run `yarn start`
-7. Happy to use :) 
+## Quick Start
+
+```bash
+# clone repository
+$ git clone https://github.com/logustra/read.git
+
+# open folder read
+$ cd read
+
+# instal dependencies
+$ yarn install
+
+# copy file .env.example to .env
+$ cp .env.example .env
+
+# build and serve with express
+$ yarn start
+```
+
