@@ -1,3 +1,4 @@
+const webpack = require('webpack')
 const path = require('path')
 const Dotenv = require('dotenv-webpack')
 
@@ -37,6 +38,12 @@ module.exports = {
   plugins: [
     new Dotenv({
       path: './.env'
+    }),
+
+    new webpack.HashedModuleIdsPlugin({
+      hashFunction: 'sha256',
+      hashDigest: 'hex',
+      hashDigestLength: 7
     })
   ]
 }
