@@ -3,6 +3,8 @@ import { Router } from 'react-router-dom'
 import { createBrowserHistory } from 'history'
 import { ThemeProvider } from 'styled-components/macro'
 
+import { Theme } from '@/contracts/stylesContracts'
+
 import Routes from './router'
 
 import { Layout } from 'templates'
@@ -14,7 +16,7 @@ import {
   GlobalStyleBase 
 } from '@/styles'
 
-const theme: {} = {
+const theme: Theme = {
   colors,
   typography
 }
