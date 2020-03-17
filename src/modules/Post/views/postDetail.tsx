@@ -9,9 +9,17 @@ import {
   postDetailInitState,
   postDetailReducer 
 } from '../stores/PostDetail'
-import { authorDetailRequest, postAuthorInitState, postAuthorReducer } from '../stores/PostAuthor'
+import { 
+  authorDetailRequest, 
+  postAuthorInitState, 
+  postAuthorReducer 
+} from '../stores/PostAuthor'
 
-import { setTitle, commonInitState, commonReducer } from '@/stores/Common'
+import { 
+  setTitle, 
+  commonInitState, 
+  commonReducer 
+} from '@/stores/Common'
 
 import { Loading } from 'atoms'
 import { Card } from 'templates'

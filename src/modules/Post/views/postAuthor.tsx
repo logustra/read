@@ -9,7 +9,11 @@ import {
   postAuthorReducer 
 } from '../stores/PostAuthor'
 
-import { setTitle, commonInitState, commonReducer } from '@/stores/Common'
+import { 
+  setTitle, 
+  commonInitState, 
+  commonReducer 
+} from '@/stores/Common'
 
 import { PostList } from '../components'
 

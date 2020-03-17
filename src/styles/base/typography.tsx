@@ -1,7 +1,6 @@
 import { createGlobalStyle } from 'styled-components/macro'
-import { Typography } from '@/contracts/stylesContracts'
 
-export const typography: Typography = {
+export const typography = {
   lato: '\'Lato\', sans-serif'
 }
 

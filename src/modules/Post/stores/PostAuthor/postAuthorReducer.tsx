@@ -1,5 +1,8 @@
 import * as types from './postAuthorTypes'
-import { PostAuthorState, PostAuthorAction } from '../../contracts/postAuthorContracts'
+import { 
+  PostAuthorState, 
+  PostAuthorAction 
+} from '../../contracts/postAuthorContracts'
 
 export const postAuthorInitState = {
   authorDetail: {

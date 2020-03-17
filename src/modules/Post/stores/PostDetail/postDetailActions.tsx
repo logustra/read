@@ -1,6 +1,12 @@
 import * as types from './postDetailTypes'
-import { API_POST_DETAIL, API_COMMENT_LIST } from '../../constants/postConstants'
-import { PostDetailModel, PostCommentModel } from '../../contracts/postDetailContracts'
+import { 
+  API_POST_DETAIL, 
+  API_COMMENT_LIST 
+} from '../../constants/postConstants'
+import { 
+  PostDetailModel, 
+  PostCommentModel 
+} from '../../contracts/postDetailContracts'
 import { postService } from '../../services'
 
 function postDetailSuccess (dispatch: Function, response: PostDetailModel) {

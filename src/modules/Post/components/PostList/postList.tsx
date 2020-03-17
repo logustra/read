@@ -2,7 +2,10 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Styled from 'styled-components/macro'
 
-import { PostListModel, PostListProps } from '../../contracts/postListContracts'
+import { 
+  PostListModel, 
+  PostListProps 
+} from '../../contracts/postListContracts'
 
 import { rem } from '@/styles'
 

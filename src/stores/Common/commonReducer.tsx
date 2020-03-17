@@ -1,6 +1,9 @@
 import * as types from './commonTypes'
 import { SITE_TITLE } from '@/constants/commonContants'
-import { CommonState, CommonAction } from '@/contracts/commonContracts'
+import { 
+  CommonState, 
+  CommonAction 
+} from '@/contracts/commonContracts'
 
 export const commonInitState = {
   title: SITE_TITLE

@@ -1,5 +1,9 @@
 import * as types from './postIndexTypes'
-import { PostListState, PostListModel, PostListAction } from '../../contracts/postListContracts'
+import { 
+  PostListState, 
+  PostListModel, 
+  PostListAction 
+} from '../../contracts/postListContracts'
 
 export const postIndexInitState = {
   authorList: {

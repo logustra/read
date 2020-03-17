@@ -1,5 +1,11 @@
-import { authorListRequest, postListRequest } from './postIndexActions'
-import { postIndexInitState, postIndexReducer } from './postIndexReducer'
+import { 
+  authorListRequest, 
+  postListRequest 
+} from './postIndexActions'
+import { 
+  postIndexInitState, 
+  postIndexReducer 
+} from './postIndexReducer'
 
 export {
   authorListRequest,

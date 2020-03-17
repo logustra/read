@@ -1,6 +1,4 @@
-import { Colors } from '@/contracts/stylesContracts'
-
-export const colors: Colors = {
+export const colors = {
   white: '#ffffff',
   gray: '#f7fafc',
   black: '#000000'

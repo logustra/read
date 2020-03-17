@@ -1,5 +1,8 @@
 import * as types from './postDetailTypes'
-import { PostDetailState, PostDetailAction } from '../../contracts/postDetailContracts'
+import { 
+  PostDetailState, 
+  PostDetailAction 
+} from '../../contracts/postDetailContracts'
 
 export const postDetailInitState = {
   postDetail: {

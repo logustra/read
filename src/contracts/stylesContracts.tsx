@@ -1,14 +1,5 @@
 export interface Theme {
-  colors: Colors,
-  typography: Typography
+  colors: {[key: string]: string},
+  typography: {[key: string]: string}
 }
 
-export interface Colors {
-  white: string,
-  gray: string,
-  black: string
-}
-
-export interface Typography {
-  lato: string
-}

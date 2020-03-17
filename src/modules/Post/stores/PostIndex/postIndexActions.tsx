@@ -1,6 +1,12 @@
 import * as types from './postIndexTypes'
-import { API_AUTHOR_LIST, API_POST_LIST } from '../../constants/postConstants'
-import { AuthorListModel, PostListModel } from '../../contracts/postListContracts'
+import { 
+  API_AUTHOR_LIST, 
+  API_POST_LIST 
+} from '../../constants/postConstants'
+import { 
+  AuthorListModel, 
+  PostListModel 
+} from '../../contracts/postListContracts'
 import { postService } from '../../services'
 
 function authorListSuccess (dispatch: Function, response: AuthorListModel) {
