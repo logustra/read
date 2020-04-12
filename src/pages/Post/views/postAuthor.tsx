@@ -10,8 +10,7 @@ import {
 } from '../stores/PostAuthor'
 
 import { 
-  commonInitState, 
-  commonMutations, 
+  StoresContext,
   setTitle
 } from '@/stores'
 
@@ -24,6 +23,8 @@ import { rem } from '@/styles'
 
 export default function PostAuthor () {
   const { userId }: any = useParams()
+  const { commonDispatch } = React.useContext<any>(StoresContext)
+  const title = 'Author'
   
   const [
     postAuthorState, 
@@ -37,15 +38,6 @@ export default function PostAuthor () {
     postAuthor 
   } = postAuthorState
 
-  const [
-    commonState, 
-    commonDispatch
-  ] = React.useReducer(
-    commonMutations, 
-    commonInitState
-  )
-  const title = authorDetail.data.name ? authorDetail.data.name : commonState.title
-
   React.useEffect(() => {
     authorDetailRequest(postAuthorDispatch, userId)
   }, [userId])
@@ -56,7 +48,7 @@ export default function PostAuthor () {
 
   React.useEffect(() => {
     setTitle(commonDispatch, title)
-  }, [title])
+  }, [commonDispatch, title])
 
   return (
     <StyledPostAuthor>

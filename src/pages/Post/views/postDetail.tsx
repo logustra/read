@@ -19,8 +19,7 @@ import {
 } from '../stores/PostAuthor'
 
 import { 
-  commonInitState, 
-  commonMutations,
+  StoresContext,
   setTitle
 } from '@/stores'
 
@@ -31,6 +30,8 @@ import { rem } from '@/styles'
 
 export default function PostDetail () {
   const { postId }: any = useParams()
+  const { commonDispatch } = React.useContext<any>(StoresContext)
+  const title = 'Detail'
   
   const [
     postDetailState, 
@@ -43,7 +44,7 @@ export default function PostDetail () {
     postDetail, 
     postCommentList 
   } = postDetailState
-
+  
   const [
     postAuthorState, 
     postAuthorDispatch
@@ -52,15 +53,6 @@ export default function PostDetail () {
     postAuthorInitState
   )
   const { authorDetail } = postAuthorState
-
-  const [
-    commonState, 
-    commonDispatch
-  ] = React.useReducer(
-    commonMutations, 
-    commonInitState
-  )
-  const title = postDetail.data.title ? postDetail.data.title : commonState.title
 
   React.useEffect(() => {
     postDetailRequest(postDetailDispatch, postId)
@@ -72,7 +64,7 @@ export default function PostDetail () {
   
   React.useEffect(() => {
     setTitle(commonDispatch, title)
-  }, [title])
+  }, [commonDispatch, title])
 
   React.useEffect(() => {
     postCommentListRequest(postDetailDispatch)

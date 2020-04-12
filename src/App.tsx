@@ -5,6 +5,7 @@ import { ThemeProvider } from 'styled-components/macro'
 
 import { Theme } from '@/typings/stylesTypings'
 
+import Store from './store'
 import Routes from './router'
 
 import { RLayout } from 'templates'
@@ -25,14 +26,16 @@ const browserHistory = createBrowserHistory()
 
 export default function App () {
   return (
-    <Router history={browserHistory}>
+    <Store>
       <ThemeProvider theme={theme}>
-        <GlobalStyleTypography theme={theme} />
-        <GlobalStyleBase theme={theme} />
-        <RLayout>
-          <Routes />
-        </RLayout>
+        <Router history={browserHistory}>
+          <GlobalStyleTypography theme={theme} />
+          <GlobalStyleBase theme={theme} />
+          <RLayout>
+            <Routes />
+          </RLayout>
+        </Router>
       </ThemeProvider>
-    </Router>
+    </Store>
   )
 }
