@@ -27,7 +27,7 @@ module.exports = {
     extensions: ['*', '.js', '.ts', '.tsx', '.json'],
     alias: {
       '@': path.resolve(__dirname, '../src'),
-      '@@': path.resolve(__dirname, '../src/modules'),
+      '@@': path.resolve(__dirname, '../src/pages'),
       'atoms': path.resolve(__dirname, '../src/components/atoms'),
       'molecules': path.resolve(__dirname, '../src/components/molecules'),
       'organisms': path.resolve(__dirname, '../src/components/organisms'),

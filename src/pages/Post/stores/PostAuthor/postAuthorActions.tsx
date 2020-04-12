@@ -6,7 +6,7 @@ import {
 import { 
   AuthorDetailModel, 
   PostListModel 
-} from '../../contracts/postAuthorContracts'
+} from '../../typings/postAuthorTypings'
 import { postService } from '../../services'
 
 export async function authorDetailRequest (dispatch: Function, id: string) {

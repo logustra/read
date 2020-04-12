@@ -4,7 +4,7 @@ import * as types from './postAuthorTypes'
 import { 
   PostAuthorState, 
   PostAuthorAction 
-} from '../../contracts/postAuthorContracts'
+} from '../../typings/postAuthorTypings'
 
 function postAuthorMutations (state: PostAuthorState, action: PostAuthorAction): any {
   const { type, response } = action

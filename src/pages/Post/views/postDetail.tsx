@@ -5,7 +5,7 @@ import {
 } from 'react-router-dom'
 import Styled from 'styled-components/macro'
 
-import { PostCommentModel } from '../contracts/postDetailContracts'
+import { PostCommentModel } from '../typings/postDetailTypings'
 import {
   postDetailInitState,
   postDetailMutations,

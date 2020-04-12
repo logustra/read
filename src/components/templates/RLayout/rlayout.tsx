@@ -1,7 +1,7 @@
 import React from 'react'
 import Styled from 'styled-components/macro'
 
-import { Props } from './rlayout.contracts'
+import { Props } from './rlayout.typings'
 
 import { rem } from '@/styles'
 

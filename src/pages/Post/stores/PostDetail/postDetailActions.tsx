@@ -6,7 +6,7 @@ import {
 import { 
   PostDetailModel, 
   PostCommentModel 
-} from '../../contracts/postDetailContracts'
+} from '../../typings/postDetailTypings'
 import { postService } from '../../services'
 
 export async function postDetailRequest (dispatch: Function, id: string) {

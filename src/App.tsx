@@ -3,7 +3,7 @@ import { Router } from 'react-router-dom'
 import { createBrowserHistory } from 'history'
 import { ThemeProvider } from 'styled-components/macro'
 
-import { Theme } from '@/contracts/stylesContracts'
+import { Theme } from '@/typings/stylesTypings'
 
 import Routes from './router'
 

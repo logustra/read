@@ -5,7 +5,7 @@ import {
   PostIndexState, 
   PostListModel, 
   PostIndexAction 
-} from '../../contracts/postIndexContracts'
+} from '../../typings/postIndexTypings'
 
 function postIndexMutations (state: PostIndexState, action: PostIndexAction): any {
   const { type, response } = action

@@ -6,7 +6,7 @@ import {
 import { 
   AuthorListModel, 
   PostListModel 
-} from '../../contracts/postIndexContracts'
+} from '../../typings/postIndexTypings'
 import { postService } from '../../services'
 
 export async function authorListRequest (dispatch: Function) {

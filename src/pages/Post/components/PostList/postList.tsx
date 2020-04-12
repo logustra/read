@@ -5,7 +5,7 @@ import Styled from 'styled-components/macro'
 import {
   Props,
   PostListModel
-} from './postList.contracts'
+} from './postList.typings'
 
 import { rem } from '@/styles'
 

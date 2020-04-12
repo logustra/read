@@ -4,7 +4,7 @@ import * as types from './postDetailTypes'
 import { 
   PostDetailState, 
   PostDetailAction 
-} from '../../contracts/postDetailContracts'
+} from '../../typings/postDetailTypings'
 
 function postDetailMutations (state: PostDetailState, action: PostDetailAction): any {
   const { type, response } = action

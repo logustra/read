@@ -2,7 +2,7 @@ import React from 'react'
 import progress from 'nprogress'
 import 'nprogress/nprogress.css'
 
-import { Props } from './rpreloader.contracts'
+import { Props } from './rpreloader.typings'
 
 progress.configure({ showSpinner: false })
 
