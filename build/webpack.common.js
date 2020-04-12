@@ -6,7 +6,7 @@ module.exports = {
   entry: './src/main.tsx',
   output: {
     path: path.resolve('dist'),
-    filename: '[name].js?[hash]',
+    filename: '[name]-[hash].js',
     publicPath: '/'
   },
 
