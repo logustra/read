@@ -1,5 +1,6 @@
 import React from 'react'
 import Styled from 'styled-components/macro'
+import tw from 'tailwind.macro'
 import { rem } from 'polished'
 
 import { Props } from './rlayout.typings'
@@ -15,8 +16,10 @@ export default function RLayout ({ children }: Props) {
 }
 
 const StyledRLayout = Styled.div`
-  display: flex;
-  justify-content: center;
+  ${tw`
+    flex
+    justify-center
+  `}
 
   > .container {
     width: ${rem('480px')};

@@ -4,7 +4,6 @@ import {
   useParams 
 } from 'react-router-dom'
 import Styled from 'styled-components/macro'
-import { rem } from 'polished'
 
 import { PostCommentModel } from '../typings/postDetailTypings'
 import {
@@ -74,13 +73,16 @@ export default function PostDetail () {
       {postDetail.isFetching ? (
         <RLoading />
       ) : (
-        <RCard>
+        <RCard className="mb-4">
           <h2 className="title">
             {postDetail.data.title}
           </h2>
           <div>
             Written by
-            <Link to={`/author/${postDetail.data.userId}`}>
+            <Link 
+              to={`/author/${postDetail.data.userId}`}
+              className="link"
+            >
               {' ' + authorDetail.data.name}
             </Link>
           </div>
@@ -91,35 +93,32 @@ export default function PostDetail () {
         </RCard>
       )}
 
-      <div className="comment">
-        <h3>Comments</h3>
+      <h3 className="text-base font-bold mb-4">
+        Comments
+      </h3>
 
-        {postCommentList.isFetching ? (
-          <RLoading />
-        ) : (
-          postCommentList.data.map((item: PostCommentModel) => (
-            <RCard key={`comment-${item.id}`}>
-              <h3 className="title">
-                {item.name}
-              </h3>
+      {postCommentList.isFetching ? (
+        <RLoading />
+      ) : (
+        postCommentList.data.map((item: PostCommentModel) => (
+          <RCard 
+            key={`comment-${item.id}`}
+            className="mb-4"
+          >
+            <h3 className="title">
+              {item.name}
+            </h3>
 
-              <div className="description">
-                {item.body}
-              </div>
-            </RCard>
-          ))
-        )}
-      </div>
+            <div className="description">
+              {item.body}
+            </div>
+          </RCard>
+        ))
+      )}
     </StyledPostDetail>
   )
 }
 
 const StyledPostDetail = Styled.div`
-  .r-card {
-    margin-bottom: ${rem('16px')};
 
-    a {
-      text-decoration: none;
-    }
-  }
 `

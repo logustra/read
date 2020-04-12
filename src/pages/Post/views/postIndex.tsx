@@ -31,7 +31,10 @@ export default function PostIndex () {
 
   return (
     <div>
-      <h2>Read</h2>
+      <h2 className="text-xl font-bold mb-5">
+        Read
+      </h2>
+
       {postList.isFetching ? (
         <RLoading />
       ) : (

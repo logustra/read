@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Styled from 'styled-components/macro'
-import { rem } from 'polished'
 
 import {
   Props,
@@ -18,28 +17,32 @@ export default function PostList ({ withAuthor, data }: Props) {
         <RLoading />
       ) : (
         data.data.map((item: PostListModel) => (
-          <div key={`post-${item.id}`}>
-            <RCard>
-              <React.Fragment>
-                <Link to={`/post/${item.id}`}>
-                  <h3 className="title">{item.title}</h3>
+          <RCard 
+            key={`post-${item.id}`}
+            className="mb-4"
+          >
+            <Link to={`/post/${item.id}`}>
+              <h3 className="title">{item.title}</h3>
+            </Link>
+
+            {withAuthor && item.author ? (
+              <div>
+                Written by
+                <Link
+                  to={`/author/${item.userId}`}
+                  className="link"
+                >
+                  {' ' + item.author.name}
                 </Link>
+              </div>
+            ) : (
+              null
+            )}
 
-                {withAuthor && item.author ? (
-                  <div>
-                    Written by
-                    <Link to={`/author/${item.userId}`}>
-                      {' ' + item.author.name}
-                    </Link>
-                  </div>
-                ) : (
-                  ''
-                )}
-
-                <div className="description">{item.body}</div>
-              </React.Fragment>
-            </RCard>
-          </div>
+            <div className="description">
+              {item.body}
+            </div>
+          </RCard>
         ))
       )}
     </StyledPostList>
@@ -47,7 +50,5 @@ export default function PostList ({ withAuthor, data }: Props) {
 }
 
 const StyledPostList = Styled.div`
-  .r-card {
-    margin-bottom: ${rem('16px')}
-  }
+
 `

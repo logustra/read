@@ -1,3 +1,7 @@
+import RDivider from './RDivider/rdivider'
 import RLoading from './RLoading/rloading'
 
-export { RLoading }
+export { 
+  RDivider,
+  RLoading 
+}

@@ -1,7 +1,6 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
 import Styled from 'styled-components/macro'
-import { rem } from 'polished'
 
 import {
   postAuthorInitState,
@@ -17,7 +16,10 @@ import {
 
 import { PostList } from '../components'
 
-import { RLoading } from 'atoms'
+import { 
+  RDivider,
+  RLoading 
+} from 'atoms'
 import { RCard } from 'molecules'
 
 export default function PostAuthor () {
@@ -54,11 +56,13 @@ export default function PostAuthor () {
       {authorDetail.isFetching ? (
         <RLoading />
       ) : (
-        <RCard>
+        <RCard className="mb-4">
           <h2 className="title">
             {authorDetail.data.name}
           </h2>
-          <hr />
+          
+          <RDivider />
+
           <div>
             Email: {authorDetail.data.email} <br />
             Website: {authorDetail.data.website}
@@ -66,7 +70,10 @@ export default function PostAuthor () {
         </RCard>
       )}
 
-      <h3>Posted Article</h3>
+      <h3 className="text-base font-bold mb-4">
+        Posted Article
+      </h3>
+
       {postAuthor.isFetching ? (
         <RLoading />
       ) : (
@@ -80,7 +87,5 @@ export default function PostAuthor () {
 }
 
 const StyledPostAuthor = Styled.div`
-  .r-card {
-    margin-bottom: ${rem('16px')};
-  }
+
 `

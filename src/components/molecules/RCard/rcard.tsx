@@ -1,14 +1,12 @@
 import React from 'react'
 import Styled from 'styled-components/macro'
-import { rem } from 'polished'
+import tw from 'tailwind.macro'
 
 import { Props } from './rcard.typings'
 
-import { colors } from '@/styles'
-
-export default function RCard ({ children }: Props) {
+export default function RCard ({ children, className }: Props) {
   return (
-    <StyledRCard className="r-card">
+    <StyledRCard className={`r-card ${className}`}>
       <React.Fragment>
         {children}
       </React.Fragment>
@@ -17,26 +15,35 @@ export default function RCard ({ children }: Props) {
 }
 
 const StyledRCard = Styled.div`
-  padding: ${rem('16px')};
-  border-radius: ${rem('6px')};
-  background-color: ${colors.white};
+  ${tw`
+    p-4
+    rounded
+    bg-white
+  `};
 
-  > a {
-    color: ${colors.black};
-    text-decoration: none;
+  > .title {
+    ${tw`
+      text-black
+      no-underline
+    `};
+  }
 
-    ~ div > a {
-      text-decoration: none;
-    }
+  .link {
+    ${tw`
+      text-blue-500
+      no-underline
+    `};
   }
 
   .title {
-    margin-top: 0;
-    margin-bottom: ${rem('2px')};
-    font-weight: 700;
+    ${tw`
+      mt-0
+      font-bold
+      text-base
+    `};
   }
 
   .description {
-    margin-top: ${rem('12px')};
+    ${tw`mt-3`};
   }
 `
