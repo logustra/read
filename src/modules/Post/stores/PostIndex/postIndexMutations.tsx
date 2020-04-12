@@ -75,4 +75,4 @@ function postIndexMutations (state: PostIndexState, action: PostIndexAction): an
   }
 }
 
-export default __DEV__ ? logger<any>(postIndexMutations) : postIndexMutations
+export default process.env.NODE_ENV === 'development' ? logger<any>(postIndexMutations) : postIndexMutations

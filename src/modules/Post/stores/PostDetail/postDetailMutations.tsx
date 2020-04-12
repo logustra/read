@@ -71,4 +71,4 @@ function postDetailMutations (state: PostDetailState, action: PostDetailAction):
   }
 }
 
-export default __DEV__ ? logger<any>(postDetailMutations) : postDetailMutations
+export default process.env.NODE_ENV === 'development' ? logger<any>(postDetailMutations) : postDetailMutations

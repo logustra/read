@@ -71,4 +71,4 @@ function postAuthorMutations (state: PostAuthorState, action: PostAuthorAction):
   }
 }
 
-export default __DEV__ ? logger<any>(postAuthorMutations) : postAuthorMutations
+export default process.env.NODE_ENV === 'development' ? logger<any>(postAuthorMutations) : postAuthorMutations

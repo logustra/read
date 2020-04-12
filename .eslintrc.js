@@ -1,4 +1,3 @@
-
 module.exports = {
   root: true,
 
@@ -29,6 +28,9 @@ module.exports = {
   ],
 
   rules: {
+    // prettier
+    'prettier/prettier': 'off',
+
     // javascript
     'no-undef': 'off',
     'no-console': 'warn',
@@ -46,12 +48,37 @@ module.exports = {
     'template-curly-spacing': ['error', 'never'],
     'space-in-parens': ['error', 'never'],
     'space-before-function-paren': ['error', 'always'],
+    'jsx-quotes': ['error', 'prefer-double'],
     'indent': ['error', 2, {
       'SwitchCase': 1
     }],
 
     // react
     'react/prop-types': 'off',
+    'react/jsx-equals-spacing': ['error', 'never'],
+    'react/jsx-closing-bracket-location': ['error', 'tag-aligned'],
+    'react/jsx-first-prop-new-line': ['error', 'multiline'],
+    'react/jsx-fragments': ['error', 'element'],
+
+    'react/jsx-tag-spacing': ['error', {
+      'beforeSelfClosing': 'always'
+    }],
+
+    'react/jsx-max-props-per-line': ['error', {
+      'maximum': 1
+    }],
+
+    'react/jsx-curly-spacing': ['error', {
+      'when': 'never',
+      'children': {
+        'when': 'never'
+      }
+    }],
+
+    'react/self-closing-comp': ['error', {
+      'component': true,
+      'html': true
+    }],
 
     // react-hooks
     'react-hooks/rules-of-hooks': 'error',
@@ -66,6 +93,11 @@ module.exports = {
       'vars': 'all',
       'args': 'after-used',
       'ignoreRestSiblings': false
+    }],
+
+    '@typescript-eslint/no-use-before-define': ['error', {
+      'functions': false,
+      'variables': false
     }],
 
     '@typescript-eslint/member-delimiter-style': ['error', {
@@ -91,7 +123,13 @@ module.exports = {
 
     '@typescript-eslint/type-annotation-spacing': ['error', {
       'before': false,
-      'after': true
+      'after': true,
+      overrides: {
+        arrow: {
+          before: true,
+          after: true
+        }
+      }
     }],
   }
 }
