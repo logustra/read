@@ -1,15 +1,13 @@
-import { 
-  postDetailRequest, 
-  postCommentListRequest 
+import postDetailInitState from './postDetailState'
+import postDetailMutations from './postDetailMutations'
+import {
+  postDetailRequest,
+  postCommentListRequest
 } from './postDetailActions'
-import { 
-  postDetailInitState, 
-  postDetailReducer 
-} from './postDetailReducer'
 
 export {
-  postDetailRequest,
-  postCommentListRequest,
   postDetailInitState,
-  postDetailReducer
+  postDetailMutations,
+  postDetailRequest,
+  postCommentListRequest
 }

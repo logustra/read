@@ -1,15 +1,13 @@
-import { 
-  authorDetailRequest, 
-  postAuthorRequest 
+import postAuthorInitState from './postAuthorState'
+import postAuthorMutations from './postAuthorMutations'
+import {
+  authorDetailRequest,
+  postAuthorRequest
 } from './postAuthorActions'
-import { 
-  postAuthorInitState, 
-  postAuthorReducer 
-} from './postAuthorReducer'
 
 export {
-  authorDetailRequest,
-  postAuthorRequest,
   postAuthorInitState,
-  postAuthorReducer
+  postAuthorMutations,
+  authorDetailRequest,
+  postAuthorRequest
 }

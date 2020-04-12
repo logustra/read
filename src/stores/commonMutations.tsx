@@ -1,15 +1,12 @@
+import logger from 'use-reducer-logger'
+
 import * as types from './commonTypes'
-import { SITE_TITLE } from '@/constants/commonContants'
 import { 
   CommonState, 
   CommonAction 
 } from '@/contracts/commonContracts'
 
-export const commonInitState = {
-  title: SITE_TITLE
-}
-
-export function commonReducer (state: CommonState, action: CommonAction): any {
+function commonMutations (state: CommonState, action: CommonAction): any {
   const { type, response } = action
 
   switch (type) {
@@ -22,3 +19,5 @@ export function commonReducer (state: CommonState, action: CommonAction): any {
       }
   }
 }
+
+export default process.env.NODE_ENV === 'development' ? logger<any>(commonMutations) : commonMutations

@@ -1,25 +1,28 @@
 import React from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { 
+  Link, 
+  useParams 
+} from 'react-router-dom'
 import Styled from 'styled-components/macro'
 
 import { PostCommentModel } from '../contracts/postDetailContracts'
 import {
-  postDetailRequest,
-  postCommentListRequest,
   postDetailInitState,
-  postDetailReducer 
+  postDetailMutations,
+  postDetailRequest,
+  postCommentListRequest
 } from '../stores/PostDetail'
 import { 
-  authorDetailRequest, 
   postAuthorInitState, 
-  postAuthorReducer 
+  postAuthorMutations,
+  authorDetailRequest
 } from '../stores/PostAuthor'
 
 import { 
-  setTitle, 
   commonInitState, 
-  commonReducer 
-} from '@/stores/Common'
+  commonMutations,
+  setTitle
+} from '@/stores'
 
 import { RLoading } from 'atoms'
 import { RCard } from 'molecules'
@@ -27,13 +30,36 @@ import { RCard } from 'molecules'
 import { rem } from '@/styles'
 
 export default function PostDetail () {
-  const { postId }: {[key: string]: string} = useParams()
+  const { postId }: any = useParams()
   
-  const [postDetailState, postDetailDispatch] = React.useReducer(postDetailReducer, postDetailInitState)
-  const [postAuthorState, postAuthorDispatch] = React.useReducer(postAuthorReducer, postAuthorInitState)
-  const [commonState, commonDispatch] = React.useReducer(commonReducer, commonInitState)
-  const { postDetail, postCommentList } = postDetailState
+  const [
+    postDetailState, 
+    postDetailDispatch
+  ] = React.useReducer(
+    postDetailMutations, 
+    postDetailInitState
+  )
+  const { 
+    postDetail, 
+    postCommentList 
+  } = postDetailState
+
+  const [
+    postAuthorState, 
+    postAuthorDispatch
+  ] = React.useReducer(
+    postAuthorMutations, 
+    postAuthorInitState
+  )
   const { authorDetail } = postAuthorState
+
+  const [
+    commonState, 
+    commonDispatch
+  ] = React.useReducer(
+    commonMutations, 
+    commonInitState
+  )
   const title = postDetail.data.title ? postDetail.data.title : commonState.title
 
   React.useEffect(() => {

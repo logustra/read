@@ -1,15 +1,13 @@
-import { 
-  authorListRequest, 
-  postListRequest 
+import postIndexInitState from './postIndexState'
+import postIndexMutations from './postIndexMutations'
+import {
+  authorListRequest,
+  postListRequest
 } from './postIndexActions'
-import { 
-  postIndexInitState, 
-  postIndexReducer 
-} from './postIndexReducer'
 
 export {
-  authorListRequest,
-  postListRequest,
   postIndexInitState,
-  postIndexReducer
+  postIndexMutations,
+  authorListRequest,
+  postListRequest
 }

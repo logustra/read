@@ -1,10 +1,10 @@
 import React from 'react'
 
 import {
-  authorListRequest,
-  postListRequest,
   postIndexInitState,
-  postIndexReducer 
+  postIndexMutations,
+  authorListRequest,
+  postListRequest
 } from '../stores/PostIndex'
 
 import { RLoading } from 'atoms'
@@ -12,7 +12,13 @@ import { RLoading } from 'atoms'
 import { PostList } from '../components'
 
 export default function PostIndex () {
-  const [postIndexState, postIndexDispatch] = React.useReducer(postIndexReducer, postIndexInitState)
+  const [
+    postIndexState, 
+    postIndexDispatch
+  ] = React.useReducer(
+    postIndexMutations, 
+    postIndexInitState
+  )
   const { postList } = postIndexState
 
   React.useEffect(() => {

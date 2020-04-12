@@ -3,17 +3,17 @@ import { useParams } from 'react-router-dom'
 import Styled from 'styled-components/macro'
 
 import {
-  authorDetailRequest,
-  postAuthorRequest,
   postAuthorInitState,
-  postAuthorReducer 
+  postAuthorMutations,
+  authorDetailRequest,
+  postAuthorRequest
 } from '../stores/PostAuthor'
 
 import { 
-  setTitle, 
   commonInitState, 
-  commonReducer 
-} from '@/stores/Common'
+  commonMutations, 
+  setTitle
+} from '@/stores'
 
 import { PostList } from '../components'
 
@@ -23,11 +23,27 @@ import { RCard } from 'molecules'
 import { rem } from '@/styles'
 
 export default function PostAuthor () {
-  const { userId }: { [key: string]: string } = useParams()
+  const { userId }: any = useParams()
   
-  const [postAuthorState, postAuthorDispatch] = React.useReducer(postAuthorReducer, postAuthorInitState)
-  const [commonState, commonDispatch] = React.useReducer(commonReducer, commonInitState)
-  const { authorDetail, postAuthor } = postAuthorState
+  const [
+    postAuthorState, 
+    postAuthorDispatch
+  ] = React.useReducer(
+    postAuthorMutations, 
+    postAuthorInitState
+  )
+  const { 
+    authorDetail, 
+    postAuthor 
+  } = postAuthorState
+
+  const [
+    commonState, 
+    commonDispatch
+  ] = React.useReducer(
+    commonMutations, 
+    commonInitState
+  )
   const title = authorDetail.data.name ? authorDetail.data.name : commonState.title
 
   React.useEffect(() => {

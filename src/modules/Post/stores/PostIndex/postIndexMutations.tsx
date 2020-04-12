@@ -1,25 +1,13 @@
+import logger from 'use-reducer-logger'
+
 import * as types from './postIndexTypes'
 import { 
-  PostListState, 
+  PostIndexState, 
   PostListModel, 
-  PostListAction 
+  PostIndexAction 
 } from '../../contracts/postIndexContracts'
 
-export const postIndexInitState = {
-  authorList: {
-    data: [],
-    isFetching: false,
-    isError: {}
-  },
-
-  postList: {
-    data: [],
-    isFetching: false,
-    isError: {}
-  }
-}
-
-export function postIndexReducer (state: PostListState, action: PostListAction): any {
+function postIndexMutations (state: PostIndexState, action: PostIndexAction): any {
   const { type, response } = action
   const { authorList, postList } = state
 
@@ -47,7 +35,7 @@ export function postIndexReducer (state: PostListState, action: PostListAction):
       return {
         ...state,
         authorList: {
-          data: postIndexInitState.authorList.data,
+          data: [],
           isFetching: false,
           isError: response
         }
@@ -79,10 +67,12 @@ export function postIndexReducer (state: PostListState, action: PostListAction):
       return {
         ...state,
         postList: {
-          data: postIndexInitState.postList.data,
+          data: [],
           isFetching: false,
           isError: response
         }
       }
   }
 }
+
+export default __DEV__ ? logger<any>(postIndexMutations) : postIndexMutations
