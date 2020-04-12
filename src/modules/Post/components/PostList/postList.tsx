@@ -10,7 +10,7 @@ import {
 import { rem } from '@/styles'
 
 import { Loading } from 'atoms'
-import { Card } from 'templates'
+import { Card } from 'molecules'
 
 export default function PostList ({ withAuthor, data }: PostListProps) {
   return (

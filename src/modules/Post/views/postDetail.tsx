@@ -22,7 +22,7 @@ import {
 } from '@/stores/Common'
 
 import { Loading } from 'atoms'
-import { Card } from 'templates'
+import { Card } from 'molecules'
 
 import { rem } from '@/styles'
 
