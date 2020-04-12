@@ -18,7 +18,7 @@ export const postDetailInitState = {
   }
 }
 
-export function postDetailReducer (state: PostDetailState, action: PostDetailAction) {
+export function postDetailReducer (state: PostDetailState, action: PostDetailAction): any {
   const { type, response } = action
   const { postDetail, postCommentList } = state
 

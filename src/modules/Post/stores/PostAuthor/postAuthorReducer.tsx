@@ -23,7 +23,7 @@ export const postAuthorInitState = {
   }
 }
 
-export function postAuthorReducer (state: PostAuthorState, action: PostAuthorAction) {
+export function postAuthorReducer (state: PostAuthorState, action: PostAuthorAction): any {
   const { type, response } = action
   const { authorDetail, postAuthor } = state
 

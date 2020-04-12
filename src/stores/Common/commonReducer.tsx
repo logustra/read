@@ -9,7 +9,7 @@ export const commonInitState = {
   title: SITE_TITLE
 }
 
-export function commonReducer (state: CommonState, action: CommonAction) {
+export function commonReducer (state: CommonState, action: CommonAction): any {
   const { type, response } = action
 
   switch (type) {

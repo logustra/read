@@ -19,7 +19,7 @@ export const postIndexInitState = {
   }
 }
 
-export function postIndexReducer (state: PostListState, action: PostListAction) {
+export function postIndexReducer (state: PostListState, action: PostListAction): any {
   const { type, response } = action
   const { authorList, postList } = state
 
