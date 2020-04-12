@@ -1,4 +1,4 @@
-export interface PostListState {
+export interface PostIndexState {
   authorList: {
     data: AuthorListModel[],
     isFetching: boolean,
@@ -25,16 +25,7 @@ export interface AuthorListModel {
   name: string
 }
 
-export interface PostListAction {
+export interface PostIndexAction {
   type: string,
   response: any
-}
-
-export interface PostListProps {
-  withAuthor?: boolean,
-  data: {
-    data: [],
-    isFetching: boolean,
-    isError: Error
-  }
 }

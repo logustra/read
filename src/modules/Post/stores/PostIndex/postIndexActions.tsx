@@ -6,7 +6,7 @@ import {
 import { 
   AuthorListModel, 
   PostListModel 
-} from '../../contracts/postListContracts'
+} from '../../contracts/postIndexContracts'
 import { postService } from '../../services'
 
 function authorListSuccess (dispatch: Function, response: AuthorListModel) {

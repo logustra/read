@@ -3,7 +3,7 @@ import {
   PostListState, 
   PostListModel, 
   PostListAction 
-} from '../../contracts/postListContracts'
+} from '../../contracts/postIndexContracts'
 
 export const postIndexInitState = {
   authorList: {

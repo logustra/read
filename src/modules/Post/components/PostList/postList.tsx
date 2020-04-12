@@ -2,17 +2,17 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Styled from 'styled-components/macro'
 
-import { 
-  PostListModel, 
-  PostListProps 
-} from '../../contracts/postListContracts'
+import {
+  Props,
+  PostListModel
+} from './postList.contracts'
 
 import { rem } from '@/styles'
 
 import { Loading } from 'atoms'
 import { Card } from 'molecules'
 
-export default function PostList ({ withAuthor, data }: PostListProps) {
+export default function PostList ({ withAuthor, data }: Props) {
   return (
     <StyledPostList>
       {data.isFetching ? (
