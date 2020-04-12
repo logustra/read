@@ -1,6 +1,7 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
 import Styled from 'styled-components/macro'
+import { rem } from 'polished'
 
 import {
   postAuthorInitState,
@@ -18,8 +19,6 @@ import { PostList } from '../components'
 
 import { RLoading } from 'atoms'
 import { RCard } from 'molecules'
-
-import { rem } from '@/styles'
 
 export default function PostAuthor () {
   const { userId }: any = useParams()

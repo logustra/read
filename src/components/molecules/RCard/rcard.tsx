@@ -1,18 +1,14 @@
 import React from 'react'
-import Styled, { ThemeContext } from 'styled-components/macro'
+import Styled from 'styled-components/macro'
+import { rem } from 'polished'
 
 import { Props } from './rcard.typings'
 
-import { rem } from '@/styles'
+import { colors } from '@/styles'
 
 export default function RCard ({ children }: Props) {
-  const theme = React.useContext(ThemeContext)
-
   return (
-    <StyledRCard 
-      theme={theme}
-      className="r-card"
-    >
+    <StyledRCard className="r-card">
       <React.Fragment>
         {children}
       </React.Fragment>
@@ -23,10 +19,10 @@ export default function RCard ({ children }: Props) {
 const StyledRCard = Styled.div`
   padding: ${rem('16px')};
   border-radius: ${rem('6px')};
-  background-color: ${(props => props.theme.colors.white)};
+  background-color: ${colors.white};
 
   > a {
-    color: ${(props => props.theme.colors.black)};;
+    color: ${colors.black};
     text-decoration: none;
 
     ~ div > a {

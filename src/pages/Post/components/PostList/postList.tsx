@@ -1,13 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Styled from 'styled-components/macro'
+import { rem } from 'polished'
 
 import {
   Props,
   PostListModel
 } from './postList.typings'
-
-import { rem } from '@/styles'
 
 import { RLoading } from 'atoms'
 import { RCard } from 'molecules'

@@ -1,9 +1,8 @@
 import React from 'react'
 import Styled from 'styled-components/macro'
+import { rem } from 'polished'
 
 import { Props } from './rlayout.typings'
-
-import { rem } from '@/styles'
 
 export default function RLayout ({ children }: Props) {
   return (

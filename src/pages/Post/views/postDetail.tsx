@@ -4,6 +4,7 @@ import {
   useParams 
 } from 'react-router-dom'
 import Styled from 'styled-components/macro'
+import { rem } from 'polished'
 
 import { PostCommentModel } from '../typings/postDetailTypings'
 import {
@@ -25,8 +26,6 @@ import {
 
 import { RLoading } from 'atoms'
 import { RCard } from 'molecules'
-
-import { rem } from '@/styles'
 
 export default function PostDetail () {
   const { postId }: any = useParams()
