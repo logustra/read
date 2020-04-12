@@ -7,7 +7,7 @@ import {
   postIndexReducer 
 } from '../stores/PostIndex'
 
-import { Loading } from 'atoms'
+import { RLoading } from 'atoms'
 
 import { PostList } from '../components'
 
@@ -27,7 +27,7 @@ export default function PostIndex () {
     <div>
       <h2>Read</h2>
       {postList.isFetching ? (
-        <Loading />
+        <RLoading />
       ) : (
         <PostList
           withAuthor={true}

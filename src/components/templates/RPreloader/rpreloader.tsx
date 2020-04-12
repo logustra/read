@@ -2,11 +2,11 @@ import React from 'react'
 import progress from 'nprogress'
 import 'nprogress/nprogress.css'
 
-import { Props } from './preloader.contracts'
+import { Props } from './rpreloader.contracts'
 
 progress.configure({ showSpinner: false })
 
-export default function Preloader ({ children }: Props) {
+export default function RPreloader ({ children }: Props) {
   const [mount, setMount] = React.useState(false)
 
   if (!mount) progress.start()

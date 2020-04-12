@@ -17,8 +17,8 @@ import {
 
 import { PostList } from '../components'
 
-import { Loading } from 'atoms'
-import { Card } from 'molecules'
+import { RLoading } from 'atoms'
+import { RCard } from 'molecules'
 
 import { rem } from '@/styles'
 
@@ -45,9 +45,9 @@ export default function PostAuthor () {
   return (
     <StyledPostAuthor>
       {authorDetail.isFetching ? (
-        <Loading />
+        <RLoading />
       ) : (
-        <Card>
+        <RCard>
           <h2 className="title">
             {authorDetail.data.name}
           </h2>
@@ -56,12 +56,12 @@ export default function PostAuthor () {
             Email: {authorDetail.data.email} <br />
             Website: {authorDetail.data.website}
           </div>
-        </Card>
+        </RCard>
       )}
 
       <h3>Posted Article</h3>
       {postAuthor.isFetching ? (
-        <Loading />
+        <RLoading />
       ) : (
         <PostList
           withAuthor={false}
@@ -73,7 +73,7 @@ export default function PostAuthor () {
 }
 
 const StyledPostAuthor = Styled.div`
-  .card {
+  .r-card {
     margin-bottom: ${rem('16px')};
   }
 `

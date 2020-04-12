@@ -1,26 +1,26 @@
 import React from 'react'
 import Styled, { ThemeContext } from 'styled-components/macro'
 
-import { Props } from './card.contracts'
+import { Props } from './rcard.contracts'
 
 import { rem } from '@/styles'
 
-export default function Card ({ children }: Props) {
+export default function RCard ({ children }: Props) {
   const theme = React.useContext(ThemeContext)
 
   return (
-    <StyledCard 
+    <StyledRCard 
       theme={theme}
-      className="card"
+      className="r-card"
     >
       <React.Fragment>
         {children}
       </React.Fragment>
-    </StyledCard>
+    </StyledRCard>
   )
 }
 
-const StyledCard = Styled.div`
+const StyledRCard = Styled.div`
   padding: ${rem('16px')};
   border-radius: ${rem('6px')};
   background-color: ${(props => props.theme.colors.white)};

@@ -1,8 +1,8 @@
 import React from 'react'
 
-export default function Loading () {
+export default function RLoading () {
   return (
-    <div className="loading">
+    <div className="r-loading">
       loading...
     </div>
   )

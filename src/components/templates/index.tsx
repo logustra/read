@@ -1,7 +1,7 @@
-import Layout from './Layout/layout'
-import Preloader from './Preloader/preloader'
+import RLayout from './RLayout/rlayout'
+import RPreloader from './RPreloader/rpreloader'
 
 export {
-  Layout,
-  Preloader
+  RLayout,
+  RPreloader
 }

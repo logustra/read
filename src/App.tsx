@@ -7,7 +7,7 @@ import { Theme } from '@/contracts/stylesContracts'
 
 import Routes from './router'
 
-import { Layout } from 'templates'
+import { RLayout } from 'templates'
 
 import { 
   colors,
@@ -29,9 +29,9 @@ export default function App () {
       <ThemeProvider theme={theme}>
         <GlobalStyleTypography theme={theme} />
         <GlobalStyleBase theme={theme} />
-        <Layout>
+        <RLayout>
           <Routes />
-        </Layout>
+        </RLayout>
       </ThemeProvider>
     </Router>
   )

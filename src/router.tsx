@@ -3,7 +3,8 @@ import { Switch, Route } from 'react-router-dom'
 
 import { RoutesModel } from '@/contracts/routerContracts'
 
-import { Preloader } from 'templates'
+import { RLoading } from 'atoms'
+import { RPreloader } from 'templates'
 
 const domainModuleFiles = require.context('./modules', true, /router.tsx/)
 const domainModules = domainModuleFiles.keys().reduce((carry: any, item: string) => {
@@ -20,14 +21,14 @@ const routes = [
   }
 ]
 
-function PreloaderRoute ({ component: Component, ...props }) {
+function RPreloaderRoute ({ component: Component, ...props }) {
   return (
     <Route
       {...props}
       render={routeProps => (
-        <Preloader>
+        <RPreloader>
           <Component {...routeProps} />
-        </Preloader>
+        </RPreloader>
       )}
     />
   )
@@ -35,10 +36,10 @@ function PreloaderRoute ({ component: Component, ...props }) {
 
 export default function Router () {  
   return (
-    <React.Suspense fallback={<div />}>
+    <React.Suspense fallback={<RLoading />}>
       <Switch>
         {routes.map((item: RoutesModel, index: number) => (
-          <PreloaderRoute
+          <RPreloaderRoute
             key={`route-${index}`}
             exact={item.exact}
             path={item.path}

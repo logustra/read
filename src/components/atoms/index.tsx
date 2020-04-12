@@ -1,3 +1,3 @@
-import Loading from './Loading/loading'
+import RLoading from './RLoading/rloading'
 
-export { Loading }
+export { RLoading }

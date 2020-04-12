@@ -21,8 +21,8 @@ import {
   commonReducer 
 } from '@/stores/Common'
 
-import { Loading } from 'atoms'
-import { Card } from 'molecules'
+import { RLoading } from 'atoms'
+import { RCard } from 'molecules'
 
 import { rem } from '@/styles'
 
@@ -55,9 +55,9 @@ export default function PostDetail () {
   return (
     <StyledPostDetail>
       {postDetail.isFetching ? (
-        <Loading />
+        <RLoading />
       ) : (
-        <Card>
+        <RCard>
           <h2 className="title">
             {postDetail.data.title}
           </h2>
@@ -71,17 +71,17 @@ export default function PostDetail () {
           <div className="description">
             {postDetail.data.body}
           </div>
-        </Card>
+        </RCard>
       )}
 
       <div className="comment">
         <h3>Comments</h3>
 
         {postCommentList.isFetching ? (
-          <Loading />
+          <RLoading />
         ) : (
           postCommentList.data.map((item: PostCommentModel) => (
-            <Card key={`comment-${item.id}`}>
+            <RCard key={`comment-${item.id}`}>
               <h3 className="title">
                 {item.name}
               </h3>
@@ -89,7 +89,7 @@ export default function PostDetail () {
               <div className="description">
                 {item.body}
               </div>
-            </Card>
+            </RCard>
           ))
         )}
       </div>
@@ -98,7 +98,7 @@ export default function PostDetail () {
 }
 
 const StyledPostDetail = Styled.div`
-  .card {
+  .r-card {
     margin-bottom: ${rem('16px')};
 
     a {

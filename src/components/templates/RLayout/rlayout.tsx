@@ -1,25 +1,25 @@
 import React from 'react'
 import Styled from 'styled-components/macro'
 
-import { Props } from './layout.contracts'
+import { Props } from './rlayout.contracts'
 
 import { rem } from '@/styles'
 
-export default function Layout ({ children }: Props) {
+export default function RLayout ({ children }: Props) {
   return (
-    <StyledLayout>
-      <div className="layout-container">
+    <StyledRLayout className="r-layout">
+      <div className="container">
         {children}
       </div>
-    </StyledLayout>
+    </StyledRLayout>
   )
 }
 
-const StyledLayout = Styled.div`
+const StyledRLayout = Styled.div`
   display: flex;
   justify-content: center;
 
-  .layout-container {
+  > .container {
     width: ${rem('480px')};
     padding: ${rem('16px')};
   }

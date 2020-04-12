@@ -9,18 +9,18 @@ import {
 
 import { rem } from '@/styles'
 
-import { Loading } from 'atoms'
-import { Card } from 'molecules'
+import { RLoading } from 'atoms'
+import { RCard } from 'molecules'
 
 export default function PostList ({ withAuthor, data }: Props) {
   return (
     <StyledPostList>
       {data.isFetching ? (
-        <Loading />
+        <RLoading />
       ) : (
         data.data.map((item: PostListModel) => (
           <div key={`post-${item.id}`}>
-            <Card>
+            <RCard>
               <React.Fragment>
                 <Link to={`/post/${item.id}`}>
                   <h3 className="title">{item.title}</h3>
@@ -39,7 +39,7 @@ export default function PostList ({ withAuthor, data }: Props) {
 
                 <div className="description">{item.body}</div>
               </React.Fragment>
-            </Card>
+            </RCard>
           </div>
         ))
       )}
@@ -48,7 +48,7 @@ export default function PostList ({ withAuthor, data }: Props) {
 }
 
 const StyledPostList = Styled.div`
-  .card {
+  .r-card {
     margin-bottom: ${rem('16px')}
   }
 `

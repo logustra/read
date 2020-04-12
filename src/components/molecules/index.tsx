@@ -1,3 +1,3 @@
-import Card from './Card/card'
+import RCard from './RCard/rcard'
 
-export { Card }
+export { RCard }
