@@ -28,7 +28,7 @@ export default class Http {
 
       return this.axios.request(config)
     } catch (error) {
-      throw error
+      throw new Error(error)
     }
   }
 
@@ -46,7 +46,7 @@ export default class Http {
         data
       })
     } catch (error) {
-      throw error
+      throw new Error(error)
     }
   }
 
@@ -64,7 +64,7 @@ export default class Http {
         data
       })
     } catch (error) {
-      throw error
+      throw new Error(error)
     }
   }
 
@@ -82,7 +82,7 @@ export default class Http {
         data
       })
     } catch (error) {
-      throw error
+      throw new Error(error)
     }
   }
 
@@ -98,7 +98,7 @@ export default class Http {
         url
       })
     } catch (error) {
-      throw error
+      throw new Error(error)
     }
   }
 }

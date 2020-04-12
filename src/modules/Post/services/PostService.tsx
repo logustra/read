@@ -11,7 +11,7 @@ export default class PostService {
     try {
       return await this.http.get(url, params)
     } catch (error) {
-      throw error
+      throw new Error(error)
     }
   }
 }
