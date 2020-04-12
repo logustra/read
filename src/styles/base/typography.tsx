@@ -1,10 +1,10 @@
-import { createGlobalStyle } from 'styled-components/macro'
+import { createGlobalStyle as CreateGlobalStyle } from 'styled-components/macro'
 
 export const typography = {
   lato: '\'Lato\', sans-serif'
 }
 
-export const GlobalStyleTypography = createGlobalStyle`
+export const GlobalStyleTypography = CreateGlobalStyle`
   @font-face {
     font-family: 'Lato';
     font-display: swap;

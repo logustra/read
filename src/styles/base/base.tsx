@@ -1,8 +1,9 @@
-import { createGlobalStyle } from 'styled-components/macro'
+import { createGlobalStyle as CreateGlobalStyle } from 'styled-components/macro'
 
 import { rem } from '../'
 
-export const GlobalStyleBase = createGlobalStyle`
+export const GlobalStyleBase = CreateGlobalStyle`
+  /* stylelint-disable-next-line */
   body {
     width: 100%;
     height: 100vh;
