@@ -4,11 +4,11 @@ import tw from 'tailwind.macro'
 
 export default function RDivider () {
   return (
-    <StyledDivider className="r-divider" />
+    <StyledRDivider className="r-divider" />
   )
 }
 
-const StyledDivider = Styled.hr`
+const StyledRDivider = Styled.hr`
   ${tw`
     border-black
     my-2
