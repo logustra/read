@@ -1,3 +1,3 @@
 import tailwind from '../../../tailwind.config.js'
 
-export default tailwind.theme.colors
+export default tailwind.theme.opacity
