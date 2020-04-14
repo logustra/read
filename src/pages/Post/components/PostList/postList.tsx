@@ -21,8 +21,11 @@ export default function PostList ({ withAuthor, data }: Props) {
             key={`post-${item.id}`}
             className="mb-4"
           >
-            <Link to={`/post/${item.id}`}>
-              <h3 className="title">{item.title}</h3>
+            <Link 
+              to={`/post/${item.id}`}
+              className="title"
+            >
+              {item.title}
             </Link>
 
             {withAuthor && item.author ? (

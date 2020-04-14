@@ -23,6 +23,9 @@ const StyledRCard = Styled.div`
 
   .title {
     ${tw`
+      mt-0
+      font-bold
+      text-base
       text-black
       no-underline
     `};
@@ -32,14 +35,6 @@ const StyledRCard = Styled.div`
     ${tw`
       text-blue-500
       no-underline
-    `};
-  }
-
-  .title {
-    ${tw`
-      mt-0
-      font-bold
-      text-base
     `};
   }
 
