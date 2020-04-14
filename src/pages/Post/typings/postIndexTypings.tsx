@@ -16,8 +16,7 @@ export interface PostListModel {
   userId: number,
   id: number,
   title: string,
-  body: string,
-  author: AuthorListModel
+  body: string
 }
 
 export interface AuthorListModel {
