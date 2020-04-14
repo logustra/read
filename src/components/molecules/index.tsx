@@ -1,3 +1,7 @@
+import RAlert from './RAlert/ralert'
 import RCard from './RCard/rcard'
 
-export { RCard }
+export { 
+  RAlert,
+  RCard 
+}

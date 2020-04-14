@@ -1,5 +1,6 @@
 export interface CommonState {
-  title: string
+  title: string,
+  isOffline: boolean
 }
 
 export interface CommonAction {

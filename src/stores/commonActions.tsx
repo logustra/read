@@ -6,3 +6,10 @@ export function setTitle (dispatch: Function, response: string) {
     response
   })
 }
+
+export function setOffline (dispatch: Function, response: boolean) {
+  dispatch({
+    type: types.SET_OFFLINE,
+    response
+  })
+}

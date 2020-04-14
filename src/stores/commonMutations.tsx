@@ -17,6 +17,12 @@ function commonMutations (state: CommonState, action: CommonAction): any {
         ...state,
         title: response
       }
+
+    case types.SET_OFFLINE:
+      return {
+        ...state,
+        isOffline: response
+      }
   }
 }
 
