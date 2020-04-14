@@ -56,7 +56,7 @@ export default function PostAuthor () {
       {authorDetail.isFetching ? (
         <RLoading />
       ) : (
-        <RCard className="mb-4">
+        <RCard>
           <h2 className="title">
             {authorDetail.data.name}
           </h2>
@@ -70,7 +70,7 @@ export default function PostAuthor () {
         </RCard>
       )}
 
-      <h3 className="text-base font-bold mb-4">
+      <h3 className="text-base font-bold my-4">
         Posted Article
       </h3>
 

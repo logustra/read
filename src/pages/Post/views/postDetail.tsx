@@ -73,10 +73,11 @@ export default function PostDetail () {
       {postDetail.isFetching ? (
         <RLoading />
       ) : (
-        <RCard className="mb-4">
+        <RCard>
           <h2 className="title">
             {postDetail.data.title}
           </h2>
+
           <div>
             Written by
             <Link 
@@ -93,7 +94,7 @@ export default function PostDetail () {
         </RCard>
       )}
 
-      <h3 className="text-base font-bold mb-4">
+      <h3 className="text-base font-bold my-4">
         Comments
       </h3>
 
