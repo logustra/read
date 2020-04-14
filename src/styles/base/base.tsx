@@ -11,6 +11,6 @@ export const GlobalStyleBase = CreateGlobalStyle`
     height: 100vh;
     font-family: ${typography.lato};
     font-size: ${rem('14px')};    
-    background-color: ${colors.gray};
+    background-color: ${colors.gray[100]};
   }
 `

@@ -21,7 +21,7 @@ const StyledRCard = Styled.div`
     bg-white
   `};
 
-  > .title {
+  .title {
     ${tw`
       text-black
       no-underline

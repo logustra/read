@@ -1,12 +1,15 @@
 const express = require('express')
 const path = require('path')
 const app = express()
+const helmet = require('helmet')
 const shrinkRay = require('shrink-ray-current')
 
 const ROOT = process.cwd()
 const DIST_PATH = path.join(ROOT, 'dist')
 const PORT = process.env.PORT || 9900
 const HOST = process.env.HOST || '0.0.0.0'
+
+app.use(helmet())
 
 app.use(shrinkRay({
   level: 9,
