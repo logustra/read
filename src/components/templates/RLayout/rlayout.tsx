@@ -18,17 +18,17 @@ export default function RLayout ({ children }: Props) {
     commonDispatch 
   } = React.useContext<any>(StoresContext)
 
-  function handleSetOffline () {
+  function handleOffline () {
     setOffline(commonDispatch, !window.navigator.onLine)
   }
 
   React.useEffect(() => {
-    window.addEventListener('online', handleSetOffline)
-    window.addEventListener('offline', handleSetOffline)
+    window.addEventListener('online', handleOffline)
+    window.addEventListener('offline', handleOffline)
 
     return () => {
-      window.removeEventListener('online', handleSetOffline)
-      window.removeEventListener('offline', handleSetOffline)
+      window.removeEventListener('online', handleOffline)
+      window.removeEventListener('offline', handleOffline)
     }
   }, []) // eslint-disable-line
 
