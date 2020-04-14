@@ -48,6 +48,7 @@
     "babel.config.js",
     "commitlint.config.js",
     "husky.config.js",
-    "stylelint.config.js"
+    "stylelint.config.js",
+    "tailwind.config.js"
   ]
 }
