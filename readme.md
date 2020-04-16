@@ -33,10 +33,10 @@ A guide how to create a folder using `create-cli`
 $ node create atom loading
 ```
 
-### Page
+### Module
 ```bash
-# create new page and give it name home
-$ node create page home
+# create new module and give it name home
+$ node create module home
 ```
 
 ## How to Contribute

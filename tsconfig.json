@@ -27,7 +27,7 @@
     "paths": {
       "*": ["types/*"],
       "@/*": ["src/*"],
-      "@@/*": ["src/pages/*"],
+      "@@/*": ["src/modules/*"],
       "atoms": ["src/components/atoms"],
       "molecules": ["src/components/molecules"],
       "organism": ["src/components/organism"],
