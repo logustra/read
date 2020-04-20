@@ -1,5 +1,5 @@
 ## Read
-Example Atomic Design with DDD (Domain Driven Design). Read [documentation](https://github.com/logustra/7ad)
+Read [documentation](https://github.com/logustra/7ad)
 
 ## Requirement
   - [node.js](http://nodejs.org/)

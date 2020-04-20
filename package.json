@@ -1,7 +1,7 @@
 {
   "name": "read",
   "version": "1.0.0",
-  "description": "a Blog build with React, Typescript, Atomic Design & DDD",
+  "description": "A highly scalable react boilerplate",
   "main": "index.js",
   "keywords": [
     "react",
