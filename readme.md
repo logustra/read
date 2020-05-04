@@ -24,6 +24,16 @@ $ cp .env.example .env
 $ yarn start
 ```
 
+## Run with Docker
+
+```bash
+# build image and tag it with name read
+$ docker build . -t read
+
+# run image read in the background with port 9900
+$ docker run -p 9900:9900 -d read
+```
+
 ## How to Create Folder
 A guide how to create a folder using `create-cli`
 
