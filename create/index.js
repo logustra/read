@@ -1,7 +1,7 @@
 const chalk = require('chalk')
 const shell = require('shelljs')
 const program = require('commander')
-const camelCase = require('camelcase');
+const camelCase = require('camelcase')
 const pkg = require('../package.json') 
 
 const COMMANDS = [

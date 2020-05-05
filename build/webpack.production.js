@@ -58,16 +58,22 @@ module.exports = merge(common, {
       defaultAttribute: 'defer'
     }),
 
-    new TerserPlugin(),
     new ResourceHintWebpackPlugin(),
     new ManifestPlugin()
   ],
 
   optimization: {
     runtimeChunk: true,
+    concatenateModules: true,
     minimize: true,
+    minimizer: [
+      new TerserPlugin({
+        cache: true,
+        parallel: true
+      })
+    ],
     splitChunks: {
-      maxInitialRequests: Infinity,
+      maxInitialRequests: 10,
       minSize: 0,
       cacheGroups: {
         vendor: {
