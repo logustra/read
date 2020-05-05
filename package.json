@@ -93,7 +93,7 @@
     "stylelint-processor-styled-components": "^1.10.0",
     "stylelint-rscss": "^0.4.0",
     "tailwind.macro": "^1.0.0-alpha.10",
-    "tailwindcss": "^1.2.0",
+    "tailwindcss": "^1.4.4",
     "terser-webpack-plugin": "^2.3.2",
     "typescript": "^3.8.2",
     "use-reducer-logger": "^1.0.1",
