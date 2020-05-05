@@ -28,5 +28,5 @@ export default function ExampleIndex () {
 }
 
 const StyledRExample = Styled.div`
-
+  /* your style */
 `

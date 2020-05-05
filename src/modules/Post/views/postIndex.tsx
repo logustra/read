@@ -1,4 +1,5 @@
 import React from 'react'
+import Styled from 'styled-components/macro'
 
 import {
   postIndexInitState,
@@ -30,7 +31,7 @@ export default function PostIndex () {
   }, [])
 
   return (
-    <div>
+    <StyledPostIndex>
       <h2 className="text-xl font-bold mb-5">
         Read
       </h2>
@@ -43,6 +44,10 @@ export default function PostIndex () {
           data={postList}
         />
       )}
-    </div>
+    </StyledPostIndex>
   )
 }
+
+const StyledPostIndex = Styled.div`
+  /* your style */
+`

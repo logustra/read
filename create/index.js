@@ -230,7 +230,7 @@ const createModule = {
 
     if (!checkPath(path)) {
       shell.touch(path)
-      shell.exec(`cat ${templates.modules.constants} > ${path}`)
+      shell.exec(`cat ${templates.modules.views} > ${path}`)
 
       log(folder, file, true)
     } else {

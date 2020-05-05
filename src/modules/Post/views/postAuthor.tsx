@@ -87,5 +87,5 @@ export default function PostAuthor () {
 }
 
 const StyledPostAuthor = Styled.div`
-
+  /* your style */
 `

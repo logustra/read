@@ -121,5 +121,5 @@ export default function PostDetail () {
 }
 
 const StyledPostDetail = Styled.div`
-
+  /* your style */
 `
