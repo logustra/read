@@ -11,7 +11,7 @@ export default class ExampleService {
     try {
       return await this.http.get(url, params, responseType)
     } catch (error) {
-      throw new Error(error)
+      throw error
     }
   }
 }

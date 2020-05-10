@@ -30,7 +30,7 @@
       "@@/*": ["src/modules/*"],
       "atoms": ["src/components/atoms"],
       "molecules": ["src/components/molecules"],
-      "organism": ["src/components/organism"],
+      "organisms": ["src/components/organisms"],
       "templates": ["src/components/templates"]
     }
   },

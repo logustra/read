@@ -33,7 +33,7 @@ const StyledRCard = Styled.div`
 
   .link {
     ${tw`
-      text-blue-500
+      text-blue-700
       no-underline
     `};
   }
