@@ -1,3 +1,4 @@
+const path = require('path')
 const webpack = require('webpack')
 const merge = require('webpack-merge')
 const common = require('./webpack.common')
@@ -9,6 +10,12 @@ const TerserPlugin = require('terser-webpack-plugin')
 
 module.exports = merge(common, {
   mode: 'production',
+  output: {
+    path: path.resolve('dist'),
+    filename: '[name].[chunkhash].js',
+    chunkFilename: '[name].[chunkhash].chunk.js',
+    publicPath: '/'
+  },
 
   module: {
     rules: [
@@ -16,6 +23,7 @@ module.exports = merge(common, {
         test: /\.css$/,
         use: [
           'style-loader',
+          
           {
             loader: 'css-loader',
             options: {
@@ -54,6 +62,12 @@ module.exports = merge(common, {
       minimize: true
     }),
 
+    new webpack.HashedModuleIdsPlugin({
+      hashFunction: 'sha256',
+      hashDigest: 'hex',
+      hashDigestLength: 7
+    }),
+
     new ScriptExtHtmlWebpackPlugin({
       defaultAttribute: 'defer'
     }),
@@ -64,7 +78,16 @@ module.exports = merge(common, {
 
   optimization: {
     runtimeChunk: true,
+    removeAvailableModules: true,
+    removeEmptyChunks: true,
+    mergeDuplicateChunks: true,
+    flagIncludedChunks: true,
+    occurrenceOrder: true,
+    providedExports: true,
+    usedExports: true,
+    sideEffects: true,
     concatenateModules: true,
+    noEmitOnErrors: true,
     minimize: true,
     minimizer: [
       new TerserPlugin({
@@ -73,13 +96,12 @@ module.exports = merge(common, {
       })
     ],
     splitChunks: {
+      chunks: 'async',
       maxInitialRequests: 10,
       minSize: 0,
       cacheGroups: {
         vendor: {
           test: /[\\/]node_modules[\\/]/,
-          chunks: 'async',
-          priority: 1,
           name (module) {
             // get the name. E.g. node_modules/packageName/not/this/part.js
             // or node_modules/packageName

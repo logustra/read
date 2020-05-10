@@ -1,15 +1,9 @@
-const webpack = require('webpack')
 const path = require('path')
 const Dotenv = require('dotenv-webpack')
 
 module.exports = {
   entry: './src/main.tsx',
-  output: {
-    path: path.resolve('dist'),
-    filename: '[name].[hash].js',
-    publicPath: '/'
-  },
-
+  
   module: {
     rules: [
       {
@@ -38,12 +32,6 @@ module.exports = {
   plugins: [
     new Dotenv({
       path: './.env'
-    }),
-
-    new webpack.HashedModuleIdsPlugin({
-      hashFunction: 'sha256',
-      hashDigest: 'hex',
-      hashDigestLength: 7
     })
   ]
 }
