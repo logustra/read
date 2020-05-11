@@ -10,8 +10,6 @@ import {
   setOffline
 } from '@/stores'
 
-import { RAlert } from 'molecules'
-
 export default function RLayout ({ children }: Props) {
   const { 
     commonState, 
@@ -34,12 +32,10 @@ export default function RLayout ({ children }: Props) {
 
   return (
     <StyledRLayout className="r-layout">
-      {commonState.isOffline ? (
-        <RAlert>
+      {commonState.isOffline && (
+        <div className="offline">
           {'You\'re Offline'}
-        </RAlert>
-      ) : (
-        null
+        </div>
       )}
 
       <div className="container">
@@ -55,8 +51,21 @@ const StyledRLayout = Styled.div`
     justify-center
   `}
 
+  > .offline {
+    ${tw`
+      fixed 
+      bg-red-500 
+      text-white 
+      text-center 
+      p-1 
+      w-full 
+      left-0 
+      z-20
+    `};
+  }
+
   > .container {
+    ${tw`p-4`};
     width: ${rem('480px')};
-    ${tw`p-4`}
   }
 `

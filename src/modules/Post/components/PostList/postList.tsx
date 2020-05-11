@@ -28,7 +28,7 @@ export default function PostList ({ withAuthor, data }: Props) {
               {item.title}
             </Link>
 
-            {withAuthor && item.author ? (
+            {withAuthor && item.author && (
               <div>
                 Written by
                 <Link
@@ -38,8 +38,6 @@ export default function PostList ({ withAuthor, data }: Props) {
                   {' ' + item.author.name}
                 </Link>
               </div>
-            ) : (
-              null
             )}
 
             <div className="description">
