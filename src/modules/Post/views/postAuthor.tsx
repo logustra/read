@@ -12,7 +12,7 @@ import {
 import { 
   StoresContext,
   setTitle
-} from '@/stores'
+} from 'stores'
 
 import { PostList } from '../components'
 

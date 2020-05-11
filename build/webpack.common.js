@@ -21,11 +21,18 @@ module.exports = {
     extensions: ['*', '.js', '.ts', '.tsx', '.json'],
     alias: {
       '@': path.resolve(__dirname, '../src'),
-      '@@': path.resolve(__dirname, '../src/modules'),
       'atoms': path.resolve(__dirname, '../src/components/atoms'),
       'molecules': path.resolve(__dirname, '../src/components/molecules'),
       'organisms': path.resolve(__dirname, '../src/components/organisms'),
-      'templates': path.resolve(__dirname, '../src/components/templates')
+      'templates': path.resolve(__dirname, '../src/components/templates'),
+      'constants': path.resolve(__dirname, '../src/constants'),
+      'libs': path.resolve(__dirname, '../src/libs'),
+      'modules': path.resolve(__dirname, '../src/modules'),
+      'services': path.resolve(__dirname, '../src/services'),
+      'stores': path.resolve(__dirname, '../src/stores'),
+      'styles': path.resolve(__dirname, '../src/styles'),
+      'typings': path.resolve(__dirname, '../src/typings'),
+      'utils': path.resolve(__dirname, '../src/utils')
     }
   },
 

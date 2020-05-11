@@ -21,7 +21,7 @@ import {
 import { 
   StoresContext,
   setTitle
-} from '@/stores'
+} from 'stores'
 
 import { RLoading } from 'atoms'
 import { RCard } from 'molecules'

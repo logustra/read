@@ -1,4 +1,4 @@
-import Http from '@/services/Http'
+import Http from 'services/Http'
 
 export default class PostService {
   protected http: Http

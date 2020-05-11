@@ -8,7 +8,7 @@ import { Props } from './rlayout.typings'
 import { 
   StoresContext,
   setOffline
-} from '@/stores'
+} from 'stores'
 
 export default function RLayout ({ children }: Props) {
   const { 
