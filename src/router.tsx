@@ -1,25 +1,12 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 
+import routes from './routes'
+
 import { RoutesModel } from 'typings/routerTypings'
 
 import { RLoading } from 'atoms'
 import { RPreloader } from 'templates'
-
-const domainModuleFiles = require.context('./modules', true, /router.tsx/)
-const domainModules = domainModuleFiles.keys().reduce((carry: any, item: string) => {
-  return [...carry, ...domainModuleFiles(item).default]
-}, [])
-
-const routes = [
-  ...domainModules,
-  
-  {
-    exact: false,
-    path: '*',
-    component: React.lazy(() => import('./views/notFound'))
-  }
-]
 
 function RPreloaderRoute ({ component: Component, ...props }) {
   return (
@@ -41,9 +28,7 @@ export default function Router () {
         {routes.map((item: RoutesModel, index: number) => (
           <RPreloaderRoute
             key={`route-${index}`}
-            exact={item.exact}
-            path={item.path}
-            component={item.component}
+            {...item}
           />
         ))}
       </Switch>
