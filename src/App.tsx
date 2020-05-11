@@ -10,7 +10,7 @@ import { RLayout } from 'templates'
 import { 
   GlobalStyleTypography, 
   GlobalStyleBase 
-} from 'styles'
+} from '@/styles'
 
 const browserHistory = createBrowserHistory()
 

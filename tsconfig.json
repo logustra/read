@@ -27,18 +27,11 @@
     "paths": {
       "*": ["types/*"],
       "@/*": ["src/*"],
+      "@@/*": ["src/modules/*"],
       "atoms": ["src/components/atoms"],
       "molecules": ["src/components/molecules"],
       "organisms": ["src/components/organisms"],
-      "templates": ["src/components/templates"],
-      "constants": ["src/constants"],
-      "libs/*": ["src/libs/*"],
-      "modules/*": ["src/modules/*"],
-      "services/*": ["src/services/*"],
-      "stores/*": ["src/stores/*"],
-      "styles/*": ["src/styles/*"],
-      "typings/*": ["src/typings/*"],
-      "utils/*": ["src/utils/*"]
+      "templates": ["src/components/templates"]
     }
   },
 

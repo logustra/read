@@ -4,7 +4,7 @@ import * as types from './commonTypes'
 import { 
   CommonState, 
   CommonAction 
-} from 'typings/commonTypings'
+} from '@/typings/commonTypings'
 
 function commonMutations (state: CommonState, action: CommonAction): any {
   const { type, response } = action

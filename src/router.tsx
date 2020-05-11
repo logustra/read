@@ -3,7 +3,7 @@ import { Switch, Route } from 'react-router-dom'
 
 import routes from './routes'
 
-import { RoutesModel } from 'typings/routerTypings'
+import { RoutesModel } from '@/typings/routerTypings'
 
 import { RLoading } from 'atoms'
 import { RPreloader } from 'templates'
