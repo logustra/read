@@ -5,12 +5,13 @@ import {
 } from 'react-router-dom'
 import Styled from 'styled-components/macro'
 
-import { CommentsDataModel } from '../typings/commentsTypings'
 import {
   postInitState,
   postMutations,
   postRequest
 } from '../stores/Post'
+
+import { CommentsDataModel } from '../typings/commentsTypings'
 import { 
   commentsInitState, 
   commentsMutations,
@@ -33,7 +34,6 @@ import {
 import { RCard } from 'molecules'
 
 export default function PostDetail () {
-  const { postId }: any = useParams()
   const title = 'Detail'
 
   const { commonDispatch } = useCommonStore()
@@ -42,6 +42,7 @@ export default function PostDetail () {
     setTitle(commonDispatch, title)
   }, [commonDispatch, title])
 
+  const { postId }: any = useParams()
   const { 
     usersState, 
     usersDispatch
@@ -81,21 +82,15 @@ export default function PostDetail () {
 
   return (
     <StyledPostDetail>
-      {postState.isFetching && (
-        <RLoading />
-      )} 
-
-      {postState.isError && (
-        <RError />
-      )} 
-
+      {postState.isFetching && <RLoading />} 
+      {postState.isError && <RError />} 
       {Object.keys(postState.data).length !== 0 && (
         <RCard>
           <h2 className="title">
             {postState.data.title}
           </h2>
 
-          {postState.data.userId && commentsState.data && (
+          {postState.data.userId && usersState.data.length !== 0 && (
             <div>
               Written by
               <Link
@@ -117,14 +112,8 @@ export default function PostDetail () {
         Comments
       </h3>
 
-      {commentsState.isFetching && (
-        <RLoading />
-      )}
-
-      {commentsState.isError && (
-        <RError />
-      )}
-
+      {commentsState.isFetching && <RLoading />}
+      {commentsState.isError && <RError />}
       {commentsState.data.length !== 0 && (
         commentsState.data.map((item: CommentsDataModel) => (
           <RCard

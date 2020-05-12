@@ -27,7 +27,6 @@ import {
 import { RCard } from 'molecules'
 
 export default function PostAuthor () {
-  const { userId }: any = useParams()
   const title = 'Author'
 
   const { commonDispatch } = useCommonStore()
@@ -36,6 +35,7 @@ export default function PostAuthor () {
     setTitle(commonDispatch, title)
   }, [commonDispatch, title])
 
+  const { userId }: any = useParams()
   const [
     userState,
     userDispatch
@@ -62,14 +62,8 @@ export default function PostAuthor () {
 
   return (
     <StyledPostAuthor>
-      {userState.isFetching && (
-        <RLoading />
-      )}
-
-      {userState.isError && (
-        <RError />
-      )}
-      
+      {userState.isFetching && <RLoading />}
+      {userState.isError && <RError />}
       {Object.keys(userState.data).length !== 0 && (
         <RCard>
           <h2 className="title">

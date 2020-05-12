@@ -5,7 +5,10 @@ import Styled from 'styled-components/macro'
 import { Props } from './postList.typings'
 import { PostsDataModel } from '../../typings/postsTypings'
 
-import { RLoading } from 'atoms'
+import {
+  RError, 
+  RLoading 
+} from 'atoms'
 import { RCard } from 'molecules'
 
 export default function PostList ({ withAuthor, users, data }: Props) {
@@ -15,14 +18,8 @@ export default function PostList ({ withAuthor, users, data }: Props) {
 
   return (
     <StyledPostList>
-      {data.isFetching && (
-        <RLoading />
-      )}
-
-      {data.isError && (
-        <RLoading />
-      )}
-      
+      {data.isFetching && <RLoading />}
+      {data.isError && <RError />}
       {data.data.length !== 0 && (
         data.data.map((item: PostsDataModel) => (
           <RCard
@@ -36,7 +33,7 @@ export default function PostList ({ withAuthor, users, data }: Props) {
               {item.title}
             </Link>
 
-            {withAuthor && users && users.data && (
+            {withAuthor && users && users.data.length !== 0 && (
               <div>
                 Written by
                 <Link
