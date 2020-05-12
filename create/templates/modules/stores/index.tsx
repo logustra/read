@@ -1,9 +1,9 @@
-import exampleIndexInitState from './exampleIndexState'
-import exampleIndexMutations from './exampleIndexMutations'
-import { exampleRequest } from './exampleIndexActions'
+import exampleInitState from './exampleState'
+import exampleMutations from './exampleMutations'
+import { exampleRequest } from './exampleActions'
 
 export {
-  exampleIndexInitState,
-  exampleIndexMutations,
+  exampleInitState,
+  exampleMutations,
   exampleRequest
 }

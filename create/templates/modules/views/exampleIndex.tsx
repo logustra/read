@@ -2,8 +2,8 @@ import React from 'react'
 import Styled from 'styled-components/macro'
 
 import { 
-  exampleIndexInitState,
-  exampleIndexMutations,
+  exampleInitState,
+  exampleMutations,
   exampleRequest
 } from '../stores'
 
@@ -12,8 +12,8 @@ export default function ExampleIndex () {
     exampleState, 
     exampleDispatch
   ] = React.useReducer(
-    exampleIndexMutations, 
-    exampleIndexInitState
+    exampleMutations, 
+    exampleInitState
   )
 
   React.useEffect(() => {

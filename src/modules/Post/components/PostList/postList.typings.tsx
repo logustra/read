@@ -1,21 +1,10 @@
+import { PostsState } from '../../typings/postsTypings'
+
+import { UsersState } from '@/typings/usersTypings'
+
 export interface Props {
   withAuthor?: boolean,
-  data: {
-    data: PostListModel[],
-    isFetching: boolean,
-    isError: Error
-  }
+  users?: UsersState,
+  data: PostsState
 }
 
-export interface PostListModel {
-  userId: number,
-  id: number,
-  title: string,
-  body: string,
-  author?: AuthorListModel
-}
-
-export interface AuthorListModel {
-  id: number,
-  name: string
-}

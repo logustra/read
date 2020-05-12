@@ -5,16 +5,15 @@ import { rem } from 'polished'
 
 import { Props } from './rlayout.typings'
 
-import { 
-  StoresContext,
-  setOffline
-} from '@/stores'
+import { setOffline } from '@/stores/Common'
+
+import { useCommonStore } from '@/utils'
 
 export default function RLayout ({ children }: Props) {
   const { 
     commonState, 
     commonDispatch 
-  } = React.useContext<any>(StoresContext)
+  } = useCommonStore()
 
   function handleOffline () {
     setOffline(commonDispatch, !window.navigator.onLine)

@@ -2,10 +2,15 @@ import React from 'react'
 
 import { Props } from '@/typings/storeTypings'
 import {
-  StoresContext as Stores,
+  commonContext as CommonStore,
   commonInitState,
   commonMutations
-} from '@/stores'
+} from '@/stores/Common'
+import { 
+  usersContext as UsersStore,
+  usersInitState,
+  usersMutations
+} from '@/stores/Users'
 
 export default function Store ({ children }: Props) {
   const [
@@ -16,9 +21,19 @@ export default function Store ({ children }: Props) {
     commonInitState
   )
 
+  const [
+    usersState, 
+    usersDispatch
+  ] = React.useReducer(
+    usersMutations, 
+    usersInitState
+  )
+
   return (
-    <Stores.Provider value={{ commonState, commonDispatch }}>
-      {children}
-    </Stores.Provider>
+    <CommonStore.Provider value={{ commonState, commonDispatch }}>
+      <UsersStore.Provider value={{ usersState, usersDispatch }}>
+        {children}
+      </UsersStore.Provider>
+    </CommonStore.Provider>
   )
 }

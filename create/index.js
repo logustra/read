@@ -22,8 +22,8 @@ const templates = {
 
   modules: {
     components: './create/templates/modules/components/index.tsx',
-    constants: './create/templates/modules/constants/exampleConstants.tsx',
-    typings: './create/templates/modules/typings/exampleIndexTypings.tsx',
+    constants: './create/templates/modules/constants/index.tsx',
+    typings: './create/templates/modules/typings/exampleTypings.tsx',
 
     services: [
       './create/templates/modules/services/exampleService.tsx', 
@@ -31,10 +31,10 @@ const templates = {
     ],
 
     stores: [
-      './create/templates/modules/stores/exampleIndexActions.tsx', 
-      './create/templates/modules/stores/exampleIndexMutations.tsx', 
-      './create/templates/modules/stores/exampleIndexState.tsx', 
-      './create/templates/modules/stores/exampleIndexTypes.tsx', 
+      './create/templates/modules/stores/exampleActions.tsx', 
+      './create/templates/modules/stores/exampleMutations.tsx', 
+      './create/templates/modules/stores/exampleState.tsx', 
+      './create/templates/modules/stores/exampleTypes.tsx', 
       './create/templates/modules/stores/index.tsx'
     ],
 
@@ -78,7 +78,7 @@ const createFolder = (type, folder) => {
         } else {
           pathModule = `./src/modules/${camelCase(name, { pascalCase: true })}`
           pathStores = `${pathModule}/stores`
-          path = `${pathStores}/${camelCase(name, { pascalCase: true })}Index`
+          path = `${pathStores}/${camelCase(name, { pascalCase: true })}`
           if (!checkPath(pathModule)) shell.mkdir(pathModule)
           if (!checkPath(pathStores)) shell.mkdir(pathStores)
           if (checkPath(pathModule) && checkPath(pathStores) && !checkPath(path)) shell.mkdir(path)
@@ -140,7 +140,7 @@ const createModule = {
 
   constants: () => {
     const folder = `${createFolder('modules', 'constants')}/`
-    const file = `${camelCase(name)}Constants.tsx`
+    const file = 'index.tsx'
     const path = folder + file
 
     if (!checkPath(path)) {
@@ -155,7 +155,7 @@ const createModule = {
 
   typings: () => {
     const folder = `${createFolder('modules', 'typings')}/`
-    const file = `${camelCase(name)}IndexTypings.tsx`
+    const file = `${camelCase(name)}Typings.tsx`
     const path = folder + file
 
     if (!checkPath(path)) {
@@ -197,10 +197,10 @@ const createModule = {
   stores: () => {
     const folder = `${createFolder('modules', 'stores')}/`
     const file = [
-      `${camelCase(name)}IndexActions.tsx`,
-      `${camelCase(name)}IndexMutations.tsx`,
-      `${camelCase(name)}IndexState.tsx`,
-      `${camelCase(name)}IndexTypes.tsx`,
+      `${camelCase(name)}Actions.tsx`,
+      `${camelCase(name)}Mutations.tsx`,
+      `${camelCase(name)}State.tsx`,
+      `${camelCase(name)}Types.tsx`,
       'index.tsx'
     ]
 

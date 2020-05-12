@@ -2,40 +2,48 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Styled from 'styled-components/macro'
 
-import {
-  Props,
-  PostListModel
-} from './postList.typings'
+import { Props } from './postList.typings'
+import { PostsDataModel } from '../../typings/postsTypings'
 
 import { RLoading } from 'atoms'
 import { RCard } from 'molecules'
 
-export default function PostList ({ withAuthor, data }: Props) {
+export default function PostList ({ withAuthor, users, data }: Props) {
+  function handleUser (userId: number): any {
+    if (users) return users.data.find(item => item.id === userId)
+  }
+
   return (
     <StyledPostList>
-      {data.isFetching ? (
+      {data.isFetching && (
         <RLoading />
-      ) : (
-        data.data.map((item: PostListModel) => (
-          <RCard 
+      )}
+
+      {data.isError && (
+        <RLoading />
+      )}
+      
+      {data.data.length !== 0 && (
+        data.data.map((item: PostsDataModel) => (
+          <RCard
             key={`post-${item.id}`}
             className="mb-4"
           >
-            <Link 
+            <Link
               to={`/post/${item.id}`}
               className="title"
             >
               {item.title}
             </Link>
 
-            {withAuthor && item.author && (
+            {withAuthor && users && users.data && (
               <div>
                 Written by
                 <Link
                   to={`/author/${item.userId}`}
                   className="link"
                 >
-                  {' ' + item.author.name}
+                  {' ' + handleUser(item.userId).name}
                 </Link>
               </div>
             )}
@@ -51,5 +59,5 @@ export default function PostList ({ withAuthor, data }: Props) {
 }
 
 const StyledPostList = Styled.div`
-
+  /* your style */
 `

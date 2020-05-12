@@ -3,69 +3,84 @@ import { useParams } from 'react-router-dom'
 import Styled from 'styled-components/macro'
 
 import {
-  postAuthorInitState,
-  postAuthorMutations,
-  authorDetailRequest,
-  postAuthorRequest
-} from '../stores/PostAuthor'
+  userInitState,
+  userMutations,
+  userRequest
+} from '../stores/User'
+import {
+  postsInitState,
+  postsMutations,
+  postsRequest
+} from '../stores/Posts'
 
-import { 
-  StoresContext,
-  setTitle
-} from '@/stores'
+import { setTitle } from '@/stores/Common'
+
+import { useCommonStore } from '@/utils'
 
 import { PostList } from '../components'
 
 import { 
   RDivider,
+  RError,
   RLoading 
 } from 'atoms'
 import { RCard } from 'molecules'
 
 export default function PostAuthor () {
   const { userId }: any = useParams()
-  const { commonDispatch } = React.useContext<any>(StoresContext)
   const title = 'Author'
+
+  const { commonDispatch } = useCommonStore()
   
-  const [
-    postAuthorState, 
-    postAuthorDispatch
-  ] = React.useReducer(
-    postAuthorMutations, 
-    postAuthorInitState
-  )
-  const { 
-    authorDetail, 
-    postAuthor 
-  } = postAuthorState
-
-  React.useEffect(() => {
-    authorDetailRequest(postAuthorDispatch, userId)
-  }, [userId])
-
-  React.useEffect(() => {
-    postAuthorRequest(postAuthorDispatch)
-  }, [])
-
   React.useEffect(() => {
     setTitle(commonDispatch, title)
   }, [commonDispatch, title])
 
+  const [
+    userState,
+    userDispatch
+  ] = React.useReducer(
+    userMutations,
+    userInitState
+  )
+
+  React.useEffect(() => {
+    if (userId) userRequest(userDispatch, userId)
+  }, [userId])
+
+  const [
+    postsState, 
+    postsDispatch
+  ] = React.useReducer(
+    postsMutations, 
+    postsInitState
+  )
+
+  React.useEffect(() => {
+    if (userId) postsRequest(postsDispatch, { userId })
+  }, [userId])
+
   return (
     <StyledPostAuthor>
-      {authorDetail.isFetching ? (
+      {userState.isFetching && (
         <RLoading />
-      ) : (
+      )}
+
+      {userState.isError && (
+        <RError />
+      )}
+      
+      {Object.keys(userState.data).length !== 0 && (
         <RCard>
           <h2 className="title">
-            {authorDetail.data.name}
+            {userState.data.name}
           </h2>
-          
+
           <RDivider />
 
           <div>
-            Email: {authorDetail.data.email} <br />
-            Website: {authorDetail.data.website}
+            Email: {userState.data.email} <br />
+            Website: {userState.data.website}
           </div>
         </RCard>
       )}
@@ -74,14 +89,10 @@ export default function PostAuthor () {
         Posted Article
       </h3>
 
-      {postAuthor.isFetching ? (
-        <RLoading />
-      ) : (
-        <PostList
-          withAuthor={false}
-          data={postAuthor}
-        />
-      )}
+      <PostList
+        withAuthor={false}
+        data={postsState}
+      />
     </StyledPostAuthor>
   )
 }

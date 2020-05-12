@@ -5,91 +5,110 @@ import {
 } from 'react-router-dom'
 import Styled from 'styled-components/macro'
 
-import { PostCommentModel } from '../typings/postDetailTypings'
+import { CommentsDataModel } from '../typings/commentsTypings'
 import {
-  postDetailInitState,
-  postDetailMutations,
-  postDetailRequest,
-  postCommentListRequest
-} from '../stores/PostDetail'
+  postInitState,
+  postMutations,
+  postRequest
+} from '../stores/Post'
 import { 
-  postAuthorInitState, 
-  postAuthorMutations,
-  authorDetailRequest
-} from '../stores/PostAuthor'
+  commentsInitState, 
+  commentsMutations,
+  commentsRequest
+} from '../stores/Comments'
+
+import { UsersDataModel } from '@/typings/usersTypings'
+import { setTitle } from '@/stores/Common'
+import { usersRequest } from '@/stores/Users'
 
 import { 
-  StoresContext,
-  setTitle
-} from '@/stores'
+  useCommonStore,
+  useUsersStore
+} from '@/utils'
 
-import { RLoading } from 'atoms'
+import { 
+  RError,
+  RLoading 
+} from 'atoms'
 import { RCard } from 'molecules'
 
 export default function PostDetail () {
   const { postId }: any = useParams()
-  const { commonDispatch } = React.useContext<any>(StoresContext)
   const title = 'Detail'
-  
-  const [
-    postDetailState, 
-    postDetailDispatch
-  ] = React.useReducer(
-    postDetailMutations, 
-    postDetailInitState
-  )
-  const { 
-    postDetail, 
-    postCommentList 
-  } = postDetailState
-  
-  const [
-    postAuthorState, 
-    postAuthorDispatch
-  ] = React.useReducer(
-    postAuthorMutations, 
-    postAuthorInitState
-  )
-  const { authorDetail } = postAuthorState
 
-  React.useEffect(() => {
-    postDetailRequest(postDetailDispatch, postId)
-  }, [postId])
-
-  React.useEffect(() => {
-    authorDetailRequest(postAuthorDispatch, postDetail.data.userId)
-  }, [postDetail.data.userId])
+  const { commonDispatch } = useCommonStore()
   
   React.useEffect(() => {
     setTitle(commonDispatch, title)
   }, [commonDispatch, title])
 
+  const { 
+    usersState, 
+    usersDispatch
+  } = useUsersStore()
+
+  function handleUser (userId: number) {
+    return usersState.data.find((item: UsersDataModel) => item.id === userId)
+  }
+
   React.useEffect(() => {
-    postCommentListRequest(postDetailDispatch)
-  }, [])
+    usersRequest(usersDispatch)
+  }, [usersDispatch])
+
+  const [
+    postState, 
+    postDispatch
+  ] = React.useReducer(
+    postMutations, 
+    postInitState
+  )
+
+  React.useEffect(() => {
+    if (postId) postRequest(postDispatch, postId)
+  }, [postId])
+  
+  const [
+    commentsState, 
+    commentsDispatch
+  ] = React.useReducer(
+    commentsMutations, 
+    commentsInitState
+  )
+
+  React.useEffect(() => {
+    if (postId) commentsRequest(commentsDispatch, { postId })
+  }, [postId])
 
   return (
     <StyledPostDetail>
-      {postDetail.isFetching ? (
+      {postState.isFetching && (
         <RLoading />
-      ) : (
+      )} 
+
+      {postState.isError && (
+        <RError />
+      )} 
+
+      {Object.keys(postState.data).length !== 0 && (
         <RCard>
           <h2 className="title">
-            {postDetail.data.title}
+            {postState.data.title}
           </h2>
 
-          <div>
-            Written by
-            <Link 
-              to={`/author/${postDetail.data.userId}`}
-              className="link"
-            >
-              {' ' + authorDetail.data.name}
-            </Link>
-          </div>
+          {postState.data.userId && commentsState.data && (
+            <div>
+              Written by
+              <Link
+                to={`/author/${postState.data.userId}`}
+                className="link"
+              >
+                {' ' + handleUser(postState.data.userId).name}
+              </Link>
+            </div>
+          )}
 
           <div className="description">
-            {postDetail.data.body}
+            {postState.data.body}
           </div>
         </RCard>
       )}
@@ -98,11 +117,17 @@ export default function PostDetail () {
         Comments
       </h3>
 
-      {postCommentList.isFetching ? (
+      {commentsState.isFetching && (
         <RLoading />
-      ) : (
-        postCommentList.data.map((item: PostCommentModel) => (
-          <RCard 
+      )}
+
+      {commentsState.isError && (
+        <RError />
+      )}
+
+      {commentsState.data.length !== 0 && (
+        commentsState.data.map((item: CommentsDataModel) => (
+          <RCard
             key={`comment-${item.id}`}
             className="mb-4"
           >

@@ -2,32 +2,37 @@ import React from 'react'
 import Styled from 'styled-components/macro'
 
 import {
-  postIndexInitState,
-  postIndexMutations,
-  authorListRequest,
-  postListRequest
-} from '../stores/PostIndex'
+  postsInitState,
+  postsMutations,
+  postsRequest
+} from '../stores/Posts'
 
-import { RLoading } from 'atoms'
+import { usersRequest } from '@/stores/Users'
+
+import { useUsersStore } from '@/utils'
 
 import { PostList } from '../components'
 
 export default function PostIndex () {
+  const { 
+    usersState, 
+    usersDispatch 
+  } = useUsersStore()
+
+  React.useEffect(() => {
+    usersRequest(usersDispatch)
+  }, [usersDispatch])  
+
   const [
-    postIndexState, 
-    postIndexDispatch
+    postsState, 
+    postsDispatch
   ] = React.useReducer(
-    postIndexMutations, 
-    postIndexInitState
+    postsMutations, 
+    postsInitState
   )
-  const { postList } = postIndexState
 
   React.useEffect(() => {
-    authorListRequest(postIndexDispatch)
-  }, [])
-
-  React.useEffect(() => {
-    postListRequest(postIndexDispatch)
+    postsRequest(postsDispatch)
   }, [])
 
   return (
@@ -36,14 +41,11 @@ export default function PostIndex () {
         Read
       </h2>
 
-      {postList.isFetching ? (
-        <RLoading />
-      ) : (
-        <PostList
-          withAuthor={true}
-          data={postList}
-        />
-      )}
+      <PostList
+        withAuthor={true}
+        users={usersState}
+        data={postsState}
+      />
     </StyledPostIndex>
   )
 }

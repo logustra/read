@@ -8,10 +8,10 @@ import { RoutesModel } from '@/typings/routerTypings'
 import { RLoading } from 'atoms'
 import { RPreloader } from 'templates'
 
-function RPreloaderRoute ({ component: Component, ...props }) {
+function RPreloaderRoute ({ component: Component, ...rest }) {
   return (
     <Route
-      {...props}
+      {...rest}
       render={routeProps => (
         <RPreloader>
           <Component {...routeProps} />
