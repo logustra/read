@@ -15,9 +15,9 @@
     >
   </a>
 
-  <a href="https://github.com/ralali/agent_mitra_cms/releases/tag/v1.0.0">
+  <a href="https://github.com/logustra/read/releases/tag/v1.0.0">
     <img 
-      src="https://img.shields.io/static/v1.svg?label=version&message=v1.0.0&style=flat&color=brightgreen" 
+      src="https://img.shields.io/static/v1.svg?label=version&message=1.0.0&style=flat&color=brightgreen" 
       alt="Version"
     >
   </a>
@@ -30,6 +30,8 @@
   </a>
 </div>
 <br />
+
+<img width="1023" alt="Screen Shot 2020-05-20 at 12 58 20 PM" src="https://user-images.githubusercontent.com/13871363/82410330-dad09d00-9a99-11ea-933e-0c7fdf5a5294.png">
 
 ## Learn 7AD
 Learn the design patterns [here](https://github.com/logustra/7ad)
