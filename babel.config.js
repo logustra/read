@@ -23,7 +23,12 @@ module.exports = {
     [
       'macros', {
         config: './tailwind.config.js',
-        format: 'auto'
+        format: 'auto',
+        styledComponents: {
+          ssr: false,
+          displayName: false,
+          pure: true
+        }
       }
     ]
   ]
