@@ -107,7 +107,7 @@
     "express": "^4.16.3",
     "helmet": "^3.22.0",
     "iltorb": "^2.4.4",
-    "node-zopfli-es": "^1.0.4",
+    "node-zopfli-es": "^1.0.5",
     "shrink-ray-current": "^4.0.0"
   }
 }
