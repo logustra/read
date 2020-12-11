@@ -1,7 +1,7 @@
 {
   "name": "read",
   "version": "1.0.0",
-  "description": "A highly scalable react boilerplate",
+  "description": "A highly scalable react boilerplate webpack",
   "main": "index.js",
   "keywords": [
     "react",
@@ -12,7 +12,8 @@
     "atomic-design-example",
     "ddd-example",
     "boilerplate",
-    "react-boilerplate"
+    "react-boilerplate",
+    "webpack"
   ],
   "repository": {
     "type": "git",
@@ -22,8 +23,8 @@
   "author": "Faizal Andyka Putra",
   "license": "MIT",
   "scripts": {
-    "dev": "NODE_ENV=development webpack-dev-server --config build/webpack.development --progress",
-    "build": "yarn clean:dist && NODE_ENV=production webpack --config build/webpack.production --progress",
+    "dev": "cp env/env.development .env && NODE_ENV=development webpack-dev-server --config build/webpack.development --progress",
+    "build": "yarn clean:dist && cp env/env.production .env && NODE_ENV=production webpack --config build/webpack.production --progress",
     "clean:dist": "rimraf dist",
     "start": "yarn build && node server",
     "stylelint": "stylelint --config stylelint.config.js 'src/**/*.tsx'",

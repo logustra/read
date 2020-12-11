@@ -52,9 +52,6 @@ $ cd read
 # instal dependencies
 $ yarn install
 
-# copy file .env.example to .env
-$ cp .env.example .env
-
 # build and serve with express
 $ yarn start
 ```
