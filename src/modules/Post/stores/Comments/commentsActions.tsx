@@ -28,4 +28,3 @@ function commentsError (dispatch: Function, response: Error) {
     response
   })
 }
-

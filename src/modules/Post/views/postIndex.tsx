@@ -14,20 +14,20 @@ import { useUsersStore } from '@/utils'
 import { PostList } from '../components'
 
 export default function PostIndex () {
-  const { 
-    usersState, 
-    usersDispatch 
+  const {
+    usersState,
+    usersDispatch
   } = useUsersStore()
 
   React.useEffect(() => {
     usersRequest(usersDispatch)
-  }, [usersDispatch])  
+  }, [usersDispatch])
 
   const [
-    postsState, 
+    postsState,
     postsDispatch
   ] = React.useReducer(
-    postsMutations, 
+    postsMutations,
     postsInitState
   )
 

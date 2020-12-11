@@ -7,4 +7,3 @@ export interface Props {
   users?: UsersState,
   data: PostsState
 }
-

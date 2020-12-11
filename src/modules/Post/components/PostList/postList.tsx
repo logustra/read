@@ -6,8 +6,8 @@ import { Props } from './postList.typings'
 import { PostsDataModel } from '../../typings/postsTypings'
 
 import {
-  RError, 
-  RLoading 
+  RError,
+  RLoading
 } from 'atoms'
 import { RCard } from 'molecules'
 

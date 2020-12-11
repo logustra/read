@@ -19,10 +19,10 @@ import { useCommonStore } from '@/utils'
 
 import { PostList } from '../components'
 
-import { 
+import {
   RDivider,
   RError,
-  RLoading 
+  RLoading
 } from 'atoms'
 import { RCard } from 'molecules'
 
@@ -30,7 +30,7 @@ export default function PostAuthor () {
   const title = 'Author'
 
   const { commonDispatch } = useCommonStore()
-  
+
   React.useEffect(() => {
     setTitle(commonDispatch, title)
   }, [commonDispatch, title])
@@ -49,10 +49,10 @@ export default function PostAuthor () {
   }, [userId])
 
   const [
-    postsState, 
+    postsState,
     postsDispatch
   ] = React.useReducer(
-    postsMutations, 
+    postsMutations,
     postsInitState
   )
 

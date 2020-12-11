@@ -1,8 +1,8 @@
 import logger from 'use-reducer-logger'
 
 import * as types from './postTypes'
-import { 
-  PostState, 
+import {
+  PostState,
   PostAction
 } from '../../typings/postTypings'
 

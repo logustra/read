@@ -1,8 +1,8 @@
 import logger from 'use-reducer-logger'
 
 import * as types from './commentsTypes'
-import { 
-  CommentsState, 
+import {
+  CommentsState,
   CommentsAction
 } from '../../typings/commentsTypings'
 

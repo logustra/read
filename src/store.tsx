@@ -6,7 +6,7 @@ import {
   commonInitState,
   commonMutations
 } from '@/stores/Common'
-import { 
+import {
   usersContext as UsersStore,
   usersInitState,
   usersMutations
@@ -14,18 +14,18 @@ import {
 
 export default function Store ({ children }: Props) {
   const [
-    commonState, 
+    commonState,
     commonDispatch
   ] = React.useReducer(
-    commonMutations, 
+    commonMutations,
     commonInitState
   )
 
   const [
-    usersState, 
+    usersState,
     usersDispatch
   ] = React.useReducer(
-    usersMutations, 
+    usersMutations,
     usersInitState
   )
 

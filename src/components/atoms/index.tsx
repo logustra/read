@@ -2,8 +2,8 @@ import RDivider from './RDivider/rdivider'
 import RError from './RError/rerror'
 import RLoading from './RLoading/rloading'
 
-export { 
+export {
   RDivider,
   RError,
-  RLoading 
+  RLoading
 }

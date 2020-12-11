@@ -1,9 +1,9 @@
 import logger from 'use-reducer-logger'
 
 import * as types from './usersTypes'
-import { 
-  UsersState, 
-  UsersAction 
+import {
+  UsersState,
+  UsersAction
 } from '@/typings/usersTypings'
 
 function usersMutations (state: UsersState, action: UsersAction): any {

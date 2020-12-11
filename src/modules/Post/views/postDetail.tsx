@@ -1,7 +1,7 @@
 import React from 'react'
-import { 
-  Link, 
-  useParams 
+import {
+  Link,
+  useParams
 } from 'react-router-dom'
 import Styled from 'styled-components/macro'
 
@@ -12,8 +12,8 @@ import {
 } from '../stores/Post'
 
 import { CommentsDataModel } from '../typings/commentsTypings'
-import { 
-  commentsInitState, 
+import {
+  commentsInitState,
   commentsMutations,
   commentsRequest
 } from '../stores/Comments'
@@ -22,14 +22,14 @@ import { UsersDataModel } from '@/typings/usersTypings'
 import { setTitle } from '@/stores/Common'
 import { usersRequest } from '@/stores/Users'
 
-import { 
+import {
   useCommonStore,
   useUsersStore
 } from '@/utils'
 
-import { 
+import {
   RError,
-  RLoading 
+  RLoading
 } from 'atoms'
 import { RCard } from 'molecules'
 
@@ -37,14 +37,14 @@ export default function PostDetail () {
   const title = 'Detail'
 
   const { commonDispatch } = useCommonStore()
-  
+
   React.useEffect(() => {
     setTitle(commonDispatch, title)
   }, [commonDispatch, title])
 
   const { postId }: any = useParams()
-  const { 
-    usersState, 
+  const {
+    usersState,
     usersDispatch
   } = useUsersStore()
 
@@ -57,22 +57,22 @@ export default function PostDetail () {
   }, [usersDispatch])
 
   const [
-    postState, 
+    postState,
     postDispatch
   ] = React.useReducer(
-    postMutations, 
+    postMutations,
     postInitState
   )
 
   React.useEffect(() => {
     if (postId) postRequest(postDispatch, postId)
   }, [postId])
-  
+
   const [
-    commentsState, 
+    commentsState,
     commentsDispatch
   ] = React.useReducer(
-    commentsMutations, 
+    commentsMutations,
     commentsInitState
   )
 
@@ -82,8 +82,8 @@ export default function PostDetail () {
 
   return (
     <StyledPostDetail>
-      {postState.isFetching && <RLoading />} 
-      {postState.isError && <RError />} 
+      {postState.isFetching && <RLoading />}
+      {postState.isError && <RError />}
       {Object.keys(postState.data).length !== 0 && (
         <RCard>
           <h2 className="title">

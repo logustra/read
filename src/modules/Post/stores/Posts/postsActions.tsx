@@ -28,4 +28,3 @@ function postsError (dispatch: Function, response: Error) {
     response
   })
 }
-

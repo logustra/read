@@ -1,9 +1,9 @@
 import logger from 'use-reducer-logger'
 
 import * as types from './commonTypes'
-import { 
-  CommonState, 
-  CommonAction 
+import {
+  CommonState,
+  CommonAction
 } from '@/typings/commonTypings'
 
 function commonMutations (state: CommonState, action: CommonAction): any {
@@ -12,7 +12,7 @@ function commonMutations (state: CommonState, action: CommonAction): any {
   switch (type) {
     case types.SET_TITLE:
       document.title = response
-      
+
       return {
         ...state,
         title: response

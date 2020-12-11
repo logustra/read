@@ -28,4 +28,3 @@ function userError (dispatch: Function, response: Error) {
     response
   })
 }
-

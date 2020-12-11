@@ -2,7 +2,7 @@ import React from 'react'
 
 import commonInitState from './commonState'
 import commonMutations from './commonMutations'
-import { 
+import {
   setTitle,
   setOffline
 } from './commonActions'

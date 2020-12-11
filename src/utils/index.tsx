@@ -1,9 +1,9 @@
-import { 
+import {
   useCommonStore,
   useUsersStore
 } from './hooks'
 
-export { 
+export {
   useCommonStore,
   useUsersStore
 }

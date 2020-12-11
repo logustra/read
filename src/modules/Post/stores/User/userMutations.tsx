@@ -1,8 +1,8 @@
 import logger from 'use-reducer-logger'
 
 import * as types from './userTypes'
-import { 
-  UserState, 
+import {
+  UserState,
   UserAction
 } from '../../typings/userTypings'
 

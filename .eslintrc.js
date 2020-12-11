@@ -22,9 +22,9 @@ module.exports = {
   ],
 
   extends: [
+    'standard',
     'plugin:@typescript-eslint/recommended',
-    'plugin:react/recommended',
-    'eslint:recommended'
+    'plugin:react/recommended'
   ],
 
   rules: {
@@ -33,30 +33,17 @@ module.exports = {
 
     // javascript
     'no-undef': 'off',
-    'no-console': 'warn',
-    'no-debugger': 'warn',
-    'no-unused-vars': 'warn',
-    'no-whitespace-before-property': 'error',
-    'camelcase': 'off',
+    'no-return-assign': 'off',
     'no-useless-catch': 'off',
-    'semi': ['error', 'never'],
-    'quotes': ['error', 'single'],
-    'comma-dangle': ['error', 'never'],
-    'arrow-parens': ['error', 'as-needed'],
-    'array-element-newline': ['error', 'consistent'],
-    'object-curly-spacing': ['error', 'always'],
-    'template-curly-spacing': ['error', 'never'],
-    'space-in-parens': ['error', 'never'],
-    'space-before-function-paren': ['error', 'always'],
-    'jsx-quotes': ['error', 'prefer-double'],
-    'indent': ['error', 2, {
-      'SwitchCase': 1
-    }],
+    'no-prototype-builtins': 'off',
+    'no-unused-expressions': 'off',
+    'no-useless-escape': 'off',
 
     // typescript
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
     '@typescript-eslint/camelcase': 'off',
+    '@typescript-eslint/no-empty-function': 'off',
     '@typescript-eslint/indent': ['error', 2],
     '@typescript-eslint/no-unused-vars': ['warn', {
       'vars': 'all',

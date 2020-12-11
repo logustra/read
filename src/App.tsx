@@ -7,9 +7,9 @@ import Router from './router'
 
 import { RLayout } from 'templates'
 
-import { 
-  GlobalStyleTypography, 
-  GlobalStyleBase 
+import {
+  GlobalStyleTypography,
+  GlobalStyleBase
 } from '@/styles'
 
 const browserHistory = createBrowserHistory()

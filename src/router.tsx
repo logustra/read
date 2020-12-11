@@ -21,7 +21,7 @@ function RPreloaderRoute ({ component: Component, ...rest }) {
   )
 }
 
-export default function Router () {  
+export default function Router () {
   return (
     <React.Suspense fallback={<RLoading />}>
       <Switch>

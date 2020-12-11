@@ -10,9 +10,9 @@ import { setOffline } from '@/stores/Common'
 import { useCommonStore } from '@/utils'
 
 export default function RLayout ({ children }: Props) {
-  const { 
-    commonState, 
-    commonDispatch 
+  const {
+    commonState,
+    commonDispatch
   } = useCommonStore()
 
   function handleOffline () {
