@@ -1,5 +1,3 @@
-import logger from 'use-reducer-logger'
-
 import * as types from './userTypes'
 import {
   UserState,
@@ -32,4 +30,4 @@ function userMutations (state: UserState, action: UserAction): any {
   }
 }
 
-export default process.env.NODE_ENV === 'development' ? logger<any>(userMutations) : userMutations
+export default userMutations

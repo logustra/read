@@ -1,5 +1,3 @@
-import logger from 'use-reducer-logger'
-
 import * as types from './postsTypes'
 import {
   PostsState,
@@ -32,4 +30,4 @@ function postsMutations (state: PostsState, action: PostsAction): any {
   }
 }
 
-export default process.env.NODE_ENV === 'development' ? logger<any>(postsMutations) : postsMutations
+export default postsMutations

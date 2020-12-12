@@ -1,5 +1,3 @@
-import logger from 'use-reducer-logger'
-
 import * as types from './commentsTypes'
 import {
   CommentsState,
@@ -32,4 +30,4 @@ function commentsMutations (state: CommentsState, action: CommentsAction): any {
   }
 }
 
-export default process.env.NODE_ENV === 'development' ? logger<any>(commentsMutations) : commentsMutations
+export default commentsMutations

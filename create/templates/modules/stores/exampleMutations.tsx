@@ -1,6 +1,4 @@
 
-import logger from 'use-reducer-logger'
-
 import * as types from './exampleTypes'
 import { 
   ExampleState,
@@ -33,4 +31,4 @@ function exampleMutations (state: ExampleState, action: ExampleAction) {
   }
 }
 
-export default process.env.NODE_ENV === 'development' ? logger<any>(exampleMutations) : exampleMutations
+export default exampleMutations

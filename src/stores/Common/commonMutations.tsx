@@ -1,5 +1,3 @@
-import logger from 'use-reducer-logger'
-
 import * as types from './commonTypes'
 import {
   CommonState,
@@ -26,4 +24,4 @@ function commonMutations (state: CommonState, action: CommonAction): any {
   }
 }
 
-export default process.env.NODE_ENV === 'development' ? logger<any>(commonMutations) : commonMutations
+export default commonMutations
