@@ -1,20 +1,20 @@
 # Stage Base
 FROM node:12.16.3-alpine AS base
 RUN apk add --update --no-cache python make g++
-RUN npm install yarn --global --silent
-RUN yarn global add node-gyp --silent
+RUN npm install pnpm --global
+RUN pnpm install node-gyp --global
 WORKDIR /app
 
 # Stage Dependencies
 FROM base AS dependencies
-COPY package.json yarn.lock ./
-RUN yarn install --prod
+COPY package.json pnpm-lock.yaml ./
+RUN pnpm install --production
 
 # Stage Build
 FROM base AS build
 COPY . .
-RUN yarn install
-RUN yarn build
+RUN pnpm install
+RUN pnpm build
 
 # Stage Server
 FROM node:12.16.3-alpine as server
