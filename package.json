@@ -1,7 +1,7 @@
 {
   "name": "read",
   "version": "1.0.0",
-  "description": "A highly scalable react boilerplate webpack",
+  "description": "A highly scalable react boilerplate using webpack",
   "main": "index.js",
   "keywords": [
     "react",
@@ -20,7 +20,7 @@
     "url": "https://github.com/logustra/read"
   },
   "bugs": "https://github.com/logustra/read/issues",
-  "author": "Faizal Andyka Putra",
+  "author": "Faizal Andyka",
   "license": "MIT",
   "scripts": {
     "dev": "cp env/env.development .env && NODE_ENV=development webpack-dev-server --config build/webpack.development --progress",
