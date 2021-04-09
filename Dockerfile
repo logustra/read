@@ -1,5 +1,5 @@
 # Stage Base
-FROM node:12.16.3-alpine AS base
+FROM node:12.22.0-alpine AS base
 RUN apk add --update --no-cache python make g++
 RUN npm install pnpm --global
 RUN pnpm install node-gyp --global
@@ -17,7 +17,7 @@ RUN pnpm install
 RUN pnpm build
 
 # Stage Server
-FROM node:12.16.3-alpine as server
+FROM node:12.22.0-alpine as server
 WORKDIR /app
 COPY --from=dependencies /app/node_modules ./node_modules
 COPY --from=build /app/dist ./dist
